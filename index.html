@@ -10,16 +10,16 @@
 
     <style>
         :root {
-            --bg-dark: #080a12;
-            --card-bg: rgba(18, 24, 38, 0.75);
-            --card-border: rgba(255, 255, 255, 0.08);
+            --bg-dark: #0b0f19;
+            --card-bg: #151c2e;
+            --card-border: #222e48;
             --accent-red: #ff2e63;
             --accent-cyan: #08d9d6;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --grad-accent: linear-gradient(135deg, #ff2e63 0%, #ff8e53 100%);
-            --radius-xl: 20px;
-            --radius-md: 12px;
+            --radius-xl: 16px;
+            --radius-md: 10px;
         }
 
         * {
@@ -34,10 +34,6 @@
             color: var(--text-main);
             min-height: 100vh;
             padding: 30px 15px;
-            background-image: 
-                radial-gradient(circle at 10% 10%, rgba(255, 46, 99, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(8, 217, 214, 0.08) 0%, transparent 40%);
-            background-attachment: fixed;
         }
 
         .container {
@@ -70,7 +66,6 @@
         .controls {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            backdrop-filter: blur(12px);
             border-radius: var(--radius-xl);
             padding: 20px;
             display: flex;
@@ -78,7 +73,7 @@
             flex-wrap: wrap;
             align-items: center;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
         .search-box {
@@ -98,23 +93,22 @@
         .search-box input {
             width: 100%;
             padding: 12px 16px 12px 45px;
-            background: rgba(0, 0, 0, 0.4);
+            background: #0b0f19;
             border: 1px solid var(--card-border);
             border-radius: var(--radius-md);
             color: var(--text-main);
             font-size: 0.95rem;
             outline: none;
-            transition: all 0.3s ease;
+            transition: border-color 0.2s ease;
         }
 
         .search-box input:focus {
             border-color: var(--accent-red);
-            box-shadow: 0 0 12px rgba(255, 46, 99, 0.25);
         }
 
         .filter-select {
             padding: 12px 16px;
-            background: rgba(0, 0, 0, 0.4);
+            background: #0b0f19;
             border: 1px solid var(--card-border);
             border-radius: var(--radius-md);
             color: var(--text-main);
@@ -135,22 +129,21 @@
             border: 1px solid var(--card-border);
             border-radius: var(--radius-xl);
             overflow: hidden;
-            backdrop-filter: blur(12px);
-            transition: all 0.35s ease;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
         }
 
         .car-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255, 46, 99, 0.4);
-            box-shadow: 0 15px 35px rgba(255, 46, 99, 0.15);
+            transform: translateY(-4px);
+            border-color: rgba(255, 46, 99, 0.5);
         }
 
         .car-img-wrap {
             position: relative;
             height: 200px;
+            background: #0b0f19;
             overflow: hidden;
         }
 
@@ -158,18 +151,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .car-card:hover .car-img-wrap img {
-            transform: scale(1.08);
         }
 
         .brand-badge {
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(8, 10, 18, 0.85);
+            background: rgba(11, 15, 25, 0.9);
             border: 1px solid var(--card-border);
             padding: 4px 12px;
             border-radius: 20px;
@@ -204,7 +192,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            background: rgba(0, 0, 0, 0.25);
+            background: #0b0f19;
             border: 1px solid var(--card-border);
             padding: 12px;
             border-radius: var(--radius-md);
@@ -237,7 +225,7 @@
             border-radius: var(--radius-md);
             cursor: pointer;
             margin-top: auto;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease;
         }
 
         .btn-details:hover {
@@ -265,7 +253,7 @@
     <div class="container">
         <header>
             <h1><i class="fa-solid fa-gauge-high"></i> APEX MOTORS</h1>
-            <p>Supercar Vault — Search Flagship Models across Top Manufacturers</p>
+            <p>Supercar Vault — Fast & Responsive Performance</p>
         </header>
 
         <!-- Search & Brand Filter -->
@@ -303,7 +291,7 @@
                 hp: "1,578 HP",
                 speed: "273 mph (440 km/h)",
                 engine: "8.0L Quad-Turbo W16",
-                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80"
+                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=75"
             },
             {
                 brand: "Bugatti",
@@ -312,7 +300,7 @@
                 hp: "987 HP",
                 speed: "253 mph (407 km/h)",
                 engine: "8.0L Quad-Turbo W16",
-                img: "https://images.unsplash.com/photo-1600712242805-5f78671b24da?auto=format&fit=crop&w=800&q=80"
+                img: "https://images.unsplash.com/photo-1600712242805-5f78671b24da?auto=format&fit=crop&w=600&q=75"
             },
 
             // FERRARI
@@ -323,7 +311,7 @@
                 hp: "950 HP",
                 speed: "217 mph (350 km/h)",
                 engine: "6.3L V12 Hybrid",
-                img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=80"
+                img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=600&q=75"
             },
             {
                 brand: "Ferrari",
@@ -332,7 +320,7 @@
                 hp: "986 HP",
                 speed: "211 mph (340 km/h)",
                 engine: "4.0L Twin-Turbo V8 Hybrid",
-                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80"
+                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=75"
             },
 
             // LAMBORGHINI
@@ -343,7 +331,7 @@
                 hp: "759 HP",
                 speed: "217 mph (350 km/h)",
                 engine: "6.5L NA V12",
-                img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80"
+                img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&q=75"
             },
             {
                 brand: "Lamborghini",
@@ -352,7 +340,7 @@
                 hp: "631 HP",
                 speed: "192 mph (310 km/h)",
                 engine: "5.2L NA V10",
-                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80"
+                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=600&q=75"
             },
 
             // PORSCHE
@@ -363,7 +351,7 @@
                 hp: "518 HP",
                 speed: "184 mph (296 km/h)",
                 engine: "4.0L Flat-6",
-                img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80"
+                img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=600&q=75"
             },
             {
                 brand: "Porsche",
@@ -372,7 +360,7 @@
                 hp: "887 HP",
                 speed: "214 mph (345 km/h)",
                 engine: "4.6L V8 Hybrid",
-                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
+                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=75"
             },
 
             // MCLAREN
@@ -383,7 +371,7 @@
                 hp: "1,035 HP",
                 speed: "250 mph (402 km/h)",
                 engine: "4.0L Twin-Turbo V8 Hybrid",
-                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80"
+                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=600&q=75"
             },
 
             // ASTON MARTIN
@@ -394,7 +382,7 @@
                 hp: "1,139 HP",
                 speed: "220 mph (354 km/h)",
                 engine: "6.5L V12 Hybrid",
-                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80"
+                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=75"
             }
         ];
 
@@ -411,7 +399,7 @@
                 const card = `
                     <div class="car-card">
                         <div class="car-img-wrap">
-                            <img src="${car.img}" alt="${car.name}">
+                            <img src="${car.img}" alt="${car.name}" loading="lazy">
                             <span class="brand-badge">${car.brand}</span>
                         </div>
                         <div class="car-content">
