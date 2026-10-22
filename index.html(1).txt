@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ApexMotors | Supercar Vault</title>
-    <!-- Google Fonts & Font Awesome -->
+    <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -41,11 +41,11 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Header / Brand */
+        /* Header */
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -66,7 +66,7 @@
             font-size: 1rem;
         }
 
-        /* Search Controls */
+        /* Controls / Search Bar */
         .controls {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -123,7 +123,7 @@
             font-size: 0.95rem;
         }
 
-        /* Cars Grid */
+        /* Grid Layout */
         .cars-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -177,7 +177,6 @@
             font-weight: 700;
             color: var(--accent-cyan);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         .car-content {
@@ -189,7 +188,7 @@
 
         .car-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 6px;
         }
@@ -201,7 +200,6 @@
             margin-bottom: 16px;
         }
 
-        /* Specs Grid Inside Card */
         .specs-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -246,7 +244,6 @@
             opacity: 0.9;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             margin-top: 50px;
@@ -268,14 +265,14 @@
     <div class="container">
         <header>
             <h1><i class="fa-solid fa-gauge-high"></i> APEX MOTORS</h1>
-            <p>Supercar Vault — Featuring Iconic Models from Bugatti, Ferrari, Lamborghini & Porsche</p>
+            <p>Supercar Vault — Search Flagship Models across Top Manufacturers</p>
         </header>
 
-        <!-- Search & Filter Controls -->
+        <!-- Search & Brand Filter -->
         <div class="controls">
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" onkeyup="filterCars()" placeholder="Search supercar by name, engine, or specs...">
+                <input type="text" id="searchInput" onkeyup="filterCars()" placeholder="Search supercar by model, engine, or specs...">
             </div>
             <select id="brandFilter" class="filter-select" onchange="filterCars()">
                 <option value="ALL">All Brands</option>
@@ -283,10 +280,12 @@
                 <option value="Ferrari">Ferrari</option>
                 <option value="Lamborghini">Lamborghini</option>
                 <option value="Porsche">Porsche</option>
+                <option value="McLaren">McLaren</option>
+                <option value="Aston Martin">Aston Martin</option>
             </select>
         </div>
 
-        <!-- Supercars Showcase Grid -->
+        <!-- Supercar List -->
         <div class="cars-grid" id="carsGrid"></div>
 
         <footer>
@@ -295,7 +294,6 @@
     </div>
 
     <script>
-        // Data structure containing 10 flagship models across famous manufacturers
         const supercars = [
             // BUGATTI
             {
@@ -315,15 +313,6 @@
                 speed: "253 mph (407 km/h)",
                 engine: "8.0L Quad-Turbo W16",
                 img: "https://images.unsplash.com/photo-1600712242805-5f78671b24da?auto=format&fit=crop&w=800&q=80"
-            },
-            {
-                brand: "Bugatti",
-                name: "Bugatti Divo",
-                price: "$5,800,000",
-                hp: "1,479 HP",
-                speed: "236 mph (380 km/h)",
-                engine: "8.0L Quad-Turbo W16",
-                img: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80"
             },
 
             // FERRARI
@@ -345,15 +334,6 @@
                 engine: "4.0L Twin-Turbo V8 Hybrid",
                 img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80"
             },
-            {
-                brand: "Ferrari",
-                name: "Ferrari 488 Pista",
-                price: "$350,000",
-                hp: "710 HP",
-                speed: "211 mph (340 km/h)",
-                engine: "3.9L Twin-Turbo V8",
-                img: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=800&q=80"
-            },
 
             // LAMBORGHINI
             {
@@ -362,7 +342,7 @@
                 price: "$517,700",
                 hp: "759 HP",
                 speed: "217 mph (350 km/h)",
-                engine: "6.5L Naturally Aspirated V12",
+                engine: "6.5L NA V12",
                 img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80"
             },
             {
@@ -371,7 +351,7 @@
                 price: "$330,000",
                 hp: "631 HP",
                 speed: "192 mph (310 km/h)",
-                engine: "5.2L Naturally Aspirated V10",
+                engine: "5.2L NA V10",
                 img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80"
             },
 
@@ -393,16 +373,37 @@
                 speed: "214 mph (345 km/h)",
                 engine: "4.6L V8 Hybrid",
                 img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
+            },
+
+            // MCLAREN
+            {
+                brand: "McLaren",
+                name: "McLaren Speedtail",
+                price: "$2,250,000",
+                hp: "1,035 HP",
+                speed: "250 mph (402 km/h)",
+                engine: "4.0L Twin-Turbo V8 Hybrid",
+                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80"
+            },
+
+            // ASTON MARTIN
+            {
+                brand: "Aston Martin",
+                name: "Aston Martin Valkyrie",
+                price: "$3,500,000",
+                hp: "1,139 HP",
+                speed: "220 mph (354 km/h)",
+                engine: "6.5L V12 Hybrid",
+                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80"
             }
         ];
 
-        // Render Cars into HTML
         function renderCars(carList) {
             const grid = document.getElementById('carsGrid');
             grid.innerHTML = '';
 
             if (carList.length === 0) {
-                grid.innerHTML = `<div class="no-results"><i class="fa-solid fa-car-tunnel"></i><br>No supercars found matching your query.</div>`;
+                grid.innerHTML = `<div class="no-results"><i class="fa-solid fa-car-side"></i><br>No supercars matched your search query.</div>`;
                 return;
             }
 
@@ -426,11 +427,11 @@
                                     <span class="spec-val">${car.speed}</span>
                                 </div>
                                 <div class="spec-item" style="grid-column: span 2;">
-                                    <span class="spec-label">Engine</span>
+                                    <span class="spec-label">Engine Spec</span>
                                     <span class="spec-val">${car.engine}</span>
                                 </div>
                             </div>
-                            <button class="btn-details" onclick="alert('Viewing full telemetry for ${car.name}')">View Specs</button>
+                            <button class="btn-details" onclick="alert('Telemetry data for ${car.name}')">View Telemetry</button>
                         </div>
                     </div>
                 `;
@@ -438,7 +439,6 @@
             });
         }
 
-        // Live Search and Filter Logic
         function filterCars() {
             const searchText = document.getElementById('searchInput').value.toLowerCase();
             const selectedBrand = document.getElementById('brandFilter').value;
@@ -454,7 +454,6 @@
             renderCars(filtered);
         }
 
-        // Initial render
         renderCars(supercars);
     </script>
 </body>
