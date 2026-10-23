@@ -349,7 +349,7 @@
     <div class="container">
         <header>
             <h1><i class="fa-solid fa-gauge-high"></i> APEX MOTORS</h1>
-            <p>Supercar Vault — Interactive Telemetry & Auction History</p>
+            <p>Supercar Vault — Verified Telemetry & Auction History</p>
         </header>
 
         <!-- Search & Brand Filter -->
@@ -360,15 +360,22 @@
             </div>
             <select id="brandFilter" class="filter-select" onchange="filterCars()">
                 <option value="ALL">All Brands</option>
+                <option value="Koenigsegg">Koenigsegg</option>
                 <option value="Bugatti">Bugatti</option>
                 <option value="Ferrari">Ferrari</option>
                 <option value="Lamborghini">Lamborghini</option>
                 <option value="Porsche">Porsche</option>
-                <option value="Koenigsegg">Koenigsegg</option>
                 <option value="Pagani">Pagani</option>
                 <option value="McLaren">McLaren</option>
-                <option value="Aston Martin">Aston Martin</option>
-                <option value="Ford">Ford</option>
+                <option value="Rimac">Rimac</option>
+                <option value="Maserati">Maserati</option>
+                <option value="Mercedes-AMG">Mercedes-AMG</option>
+                <option value="Lexus">Lexus</option>
+                <option value="Audi">Audi</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Lotus">Lotus</option>
+                <option value="Hennessey">Hennessey</option>
+                <option value="Nissan">Nissan</option>
             </select>
         </div>
 
@@ -413,15 +420,15 @@
             // KOENIGSEGG
             {
                 brand: "Koenigsegg",
-                name: "Koenigsegg Jesko Absolut",
+                name: "Koenigsegg Jesko",
                 price: "$3,400,000",
                 hp: "1,600 HP",
                 speed: "330 mph (531 km/h)",
                 accel: "2.5 sec",
                 engine: "5.0L Twin-Turbo V8",
                 units: "125 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=75",
-                history: "Originally announced with a base price of $3.0M, all 125 units sold out before production completed. Second-hand allocations have reached private auction bids upwards of $4.2 Million."
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Koenigsegg_Jesko_Auto_Zuerich_2023_1X7A0924.jpg/800px-Koenigsegg_Jesko_Auto_Zuerich_2023_1X7A0924.jpg",
+                history: "All 125 build slots sold out before production completed. Private allocations have reached secondary auction bids exceeding $4.2 Million."
             },
             {
                 brand: "Koenigsegg",
@@ -432,180 +439,204 @@
                 accel: "2.8 sec",
                 engine: "5.0L V8 Twin-Turbo + 3 Electric Motors",
                 units: "80 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=75",
-                history: "Broke the 0-400-0 km/h world record in 2023. Private collector resales consistently command over $3.1 Million at RM Sotheby's auctions."
-            },
-
-            // PAGANI
-            {
-                brand: "Pagani",
-                name: "Pagani Huayra Roadster BC",
-                price: "$3,500,000",
-                hp: "791 HP",
-                speed: "238 mph (383 km/h)",
-                accel: "2.8 sec",
-                engine: "6.0L Twin-Turbo AMG V12",
-                units: "40 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&q=75",
-                history: "Designed as a homage to Benny Caiola. Extreme carbon-titanium body monocoque. Auction sales average around $4.0M in pristine condition."
-            },
-            {
-                brand: "Pagani",
-                name: "Pagani Zonda HP Barchetta",
-                price: "$17,500,000",
-                hp: "789 HP",
-                speed: "221 mph (355 km/h)",
-                accel: "3.1 sec",
-                engine: "7.3L Naturally Aspirated V12",
-                units: "3 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=75",
-                history: "One of the most expensive new production cars ever built. One model is reserved exclusively for Horacio Pagani's private collection."
+                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80",
+                history: "Broke the 0-400-0 km/h world record in 2023. Resales consistently command over $3.1 Million at RM Sotheby's auctions."
             },
 
             // BUGATTI
             {
                 brand: "Bugatti",
-                name: "Bugatti Chiron Super Sport",
+                name: "Bugatti Chiron",
                 price: "$3,900,000",
                 hp: "1,578 HP",
                 speed: "273 mph (440 km/h)",
                 accel: "2.3 sec",
                 engine: "8.0L Quad-Turbo W16",
-                units: "30 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=75",
-                history: "Recorded official high-speed runs exceeding 300 mph. High private demand keeps auction prices floating around $4.5 Million."
-            },
-            {
-                brand: "Bugatti",
-                name: "Bugatti Veyron 16.4 Grand Sport",
-                price: "$2,200,000",
-                hp: "1,001 HP",
-                speed: "253 mph (407 km/h)",
-                accel: "2.5 sec",
-                engine: "8.0L Quad-Turbo W16",
-                units: "150 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1600712242805-5f78671b24da?auto=format&fit=crop&w=600&q=75",
-                history: "The car that redefined hypercar engineering in 2005. Recent Barrett-Jackson sales averaged between $1.8M to $2.4M."
+                units: "500 Units Worldwide",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Bugatti_Chiron_%288171%29.jpg/800px-Bugatti_Chiron_%288171%29.jpg",
+                history: "The iconic Quad-Turbo W16 hypercar. Private demand keeps secondary auction valuations well above $4.5 Million."
             },
 
             // FERRARI
             {
                 brand: "Ferrari",
-                name: "LaFerrari Aperta",
+                name: "LaFerrari",
                 price: "$2,200,000",
                 hp: "950 HP",
                 speed: "217 mph (350 km/h)",
                 accel: "2.4 sec",
                 engine: "6.3L V12 Hybrid",
-                units: "210 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=600&q=75",
-                history: "Auction record set at $10 Million during a charity auction in Europe. Continues to appreciate in value faster than standard supercars."
-            },
-            {
-                brand: "Ferrari",
-                name: "Ferrari Daytona SP3",
-                price: "$2,250,000",
-                hp: "829 HP",
-                speed: "211 mph (340 km/h)",
-                accel: "2.85 sec",
-                engine: "6.5L Naturally Aspirated V12",
-                units: "599 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=75",
-                history: "Part of the Icona series inspired by the 1967 24 Hours of Daytona 1-2-3 finish. Reserved strictly for top Ferrari VIP collectors."
+                units: "499 Units Worldwide",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/LaFerrari_front.jpg/800px-LaFerrari_front.jpg",
+                history: "Ferrari's flagship HY-KERS hybrid. Auction records set as high as $10 Million during European charity sales."
             },
 
             // LAMBORGHINI
             {
                 brand: "Lamborghini",
-                name: "Lamborghini Revuelto",
-                price: "$608,000",
-                hp: "1,001 HP",
+                name: "Lamborghini Aventador",
+                price: "$517,700",
+                hp: "759 HP",
                 speed: "217 mph (350 km/h)",
-                accel: "2.5 sec",
-                engine: "6.5L V12 + 3 Electric Motors",
-                units: "Production Model",
-                img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&q=75",
-                history: "Lamborghini's first HPEV (High Performance Electrified Vehicle) flagship. Sold out for the first two years of production."
-            },
-            {
-                brand: "Lamborghini",
-                name: "Lamborghini Veneno Roadster",
-                price: "$4,500,000",
-                hp: "740 HP",
-                speed: "221 mph (355 km/h)",
-                accel: "2.9 sec",
+                accel: "2.8 sec",
                 engine: "6.5L Naturally Aspirated V12",
-                units: "9 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=600&q=75",
-                history: "Originally sold for $4.5M at release; one model sold at Bonhams auction in Switzerland for an astounding $8.3 Million."
+                units: "11,465 Units Produced",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Lamborghini_Aventador_%2815490070453%29.jpg/800px-Lamborghini_Aventador_%2815490070453%29.jpg",
+                history: "The legendary V12 supercar successor to the Murciélago. Final production models hold extreme collector premiums."
+            },
+
+            // PAGANI
+            {
+                brand: "Pagani",
+                name: "Pagani Huayra",
+                price: "$3,500,000",
+                hp: "791 HP",
+                speed: "238 mph (383 km/h)",
+                accel: "2.8 sec",
+                engine: "6.0L Twin-Turbo AMG V12",
+                units: "100 Coupe Units",
+                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+                history: "Handcrafted carbon-titanium hypercar powered by Mercedes-AMG V12 engines. Auction resales average $4.0M."
             },
 
             // PORSCHE
             {
                 brand: "Porsche",
-                name: "Porsche Carrera GT",
-                price: "$440,000",
-                hp: "603 HP",
-                speed: "205 mph (330 km/h)",
-                accel: "3.5 sec",
-                engine: "5.7L V10",
-                units: "1,270 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=600&q=75",
-                history: "Equipped with a Formula 1 derived V10 engine. Values have skyrocketed recently, with low-mileage examples selling for up to $2.0 Million on Bring a Trailer."
-            },
-            {
-                brand: "Porsche",
-                name: "Porsche 918 Spyder",
-                price: "$845,000",
-                hp: "887 HP",
-                speed: "214 mph (345 km/h)",
-                accel: "2.2 sec",
-                engine: "4.6L V8 Hybrid",
-                units: "918 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=75",
-                history: "Set the Nürburgring lap record for street-legal cars in 2013. Current resale valuations range between $1.6M and $2.2M."
-            },
-
-            // MCLAREN
-            {
-                brand: "McLaren",
-                name: "McLaren P1 LM",
-                price: "$3,700,000",
-                hp: "986 HP",
-                speed: "217 mph (350 km/h)",
-                accel: "2.4 sec",
-                engine: "3.8L Twin-Turbo V8 Hybrid",
-                units: "6 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=600&q=75",
-                history: "Road-legal conversion of the P1 GTR built by Lanzante. Holds iconic track records across European circuits."
-            },
-
-            // ASTON MARTIN
-            {
-                brand: "Aston Martin",
-                name: "Aston Martin Valkyrie",
-                price: "$3,500,000",
-                hp: "1,139 HP",
-                speed: "220 mph (354 km/h)",
-                accel: "2.5 sec",
-                engine: "6.5L Cosworth V12 Hybrid",
-                units: "150 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=75",
-                history: "Co-developed with Red Bull Racing Formula 1 engineers. Produces ground-effect downforce comparable to LMP1 race cars."
-            },
-
-            // FORD
-            {
-                brand: "Ford",
-                name: "Ford GT Liquid Carbon",
-                price: "$750,000",
-                hp: "660 HP",
-                speed: "216 mph (348 km/h)",
+                name: "Porsche 911 GT3 RS",
+                price: "$241,300",
+                hp: "518 HP",
+                speed: "184 mph (296 km/h)",
                 accel: "3.0 sec",
-                engine: "3.5L Twin-Turbo EcoBoost V6",
-                units: "Special Edition",
-                img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=600&q=75",
-                history: "Features an unpainted full carbon-fiber body weave. Mecum auction prices regularly exceed $1.3 Million."
+                engine: "4.0L High-Rev Flat-6",
+                units: "Track Special",
+                img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80",
+                history: "Equipped with active DRS aerodynamics and racing suspension. Secondary market allocations sell at massive dealer markups."
+            },
+
+            // RIMAC
+            {
+                brand: "Rimac",
+                name: "Rimac Nevera",
+                price: "$2,400,000",
+                hp: "1,914 HP",
+                speed: "258 mph (412 km/h)",
+                accel: "1.74 sec",
+                engine: "Quad-Motor Electric Drive",
+                units: "150 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
+                history: "Holds over 20 acceleration world records. Croatian all-electric hypercar engineering pioneer."
+            },
+
+            // MASERATI
+            {
+                brand: "Maserati",
+                name: "Maserati MC20",
+                price: "$230,000",
+                hp: "621 HP",
+                speed: "202 mph (325 km/h)",
+                accel: "2.9 sec",
+                engine: "3.0L Nettuno Twin-Turbo V6",
+                units: "Production Supercar",
+                img: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80",
+                history: "Marks Maserati's return to mid-engine supercars with F1 twin-combustion pre-chamber technology."
+            },
+
+            // MERCEDES-AMG
+            {
+                brand: "Mercedes-AMG",
+                name: "Mercedes-AMG ONE",
+                price: "$2,720,000",
+                hp: "1,049 HP",
+                speed: "219 mph (352 km/h)",
+                accel: "2.9 sec",
+                engine: "1.6L E-Turbo V6 (F1 Engine) + 4 Electric Motors",
+                units: "275 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80",
+                history: "Street-legal Formula 1 car for the road. Broke the Nürburgring Nordschleife lap record for production cars."
+            },
+
+            // LEXUS
+            {
+                brand: "Lexus",
+                name: "Lexus LFA Nürburgring Package",
+                price: "$445,000",
+                hp: "563 HP",
+                speed: "202 mph (325 km/h)",
+                accel: "3.6 sec",
+                engine: "4.8L Naturally Aspirated V10",
+                units: "50 Nürburgring Edition Units",
+                img: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80",
+                history: "Famous Yamaha-co-developed high-revving V10. Auction prices have eclipsed $1.6 Million on modern resale platforms."
+            },
+
+            // AUDI
+            {
+                brand: "Audi",
+                name: "Audi R8 V10 GT RWD",
+                price: "$249,900",
+                hp: "612 HP",
+                speed: "199 mph (320 km/h)",
+                accel: "3.4 sec",
+                engine: "5.2L Naturally Aspirated V10",
+                units: "333 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=800&q=80",
+                history: "The final homage to Audi's naturally aspirated V10 engine line. High collector value for low mileage examples."
+            },
+
+            // CHEVROLET
+            {
+                brand: "Chevrolet",
+                name: "Chevrolet Corvette ZR1",
+                price: "$180,000",
+                hp: "1,064 HP",
+                speed: "215 mph (346 km/h)",
+                accel: "2.3 sec",
+                engine: "5.5L Twin-Turbo LT6 V8",
+                units: "Flagship Production",
+                img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
+                history: "Most powerful V8 engine ever produced by an American automaker. American hypercar performance at half European prices."
+            },
+
+            // LOTUS
+            {
+                brand: "Lotus",
+                name: "Lotus Evija",
+                price: "$2,300,000",
+                hp: "2,011 HP",
+                speed: "217 mph (350 km/h)",
+                accel: "2.2 sec",
+                engine: "Quad-Motor Electric Powertrain",
+                units: "130 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80",
+                history: "Britain's first all-electric hypercar, engineering over 2,000 metric horsepower with ultralight carbon construction."
+            },
+
+            // HENNESSEY
+            {
+                brand: "Hennessey",
+                name: "Hennessey Venom F5",
+                price: "$3,000,000",
+                hp: "1,817 HP",
+                speed: "311+ mph (500 km/h)",
+                accel: "2.6 sec",
+                engine: "6.6L Twin-Turbo 'Fury' V8",
+                units: "24 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80",
+                history: "Built specifically to target top-speed records exceeding 300 mph. Entire limited production run sold out instantly."
+            },
+
+            // NISSAN
+            {
+                brand: "Nissan",
+                name: "Nissan GT-R Nismo (R35)",
+                price: "$221,090",
+                hp: "600 HP",
+                speed: "205 mph (330 km/h)",
+                accel: "2.7 sec",
+                engine: "3.8L Twin-Turbo VR38DETT V6",
+                units: "Nismo Edition",
+                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80",
+                history: "Nicknamed 'Godzilla'. Hand-assembled Takumi engine builder badge on every unit with carbon-ceramic brakes."
             }
         ];
 
