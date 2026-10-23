@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ApexMotors | Supercar Vault</title>
+    <title>ApexMotors | Ultimate Supercar Vault</title>
     <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -37,7 +37,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1250px;
             margin: 0 auto;
         }
 
@@ -133,6 +133,7 @@
             flex-direction: column;
             transition: transform 0.2s ease, border-color 0.2s ease;
             box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            cursor: pointer;
         }
 
         .car-card:hover {
@@ -232,6 +233,101 @@
             opacity: 0.9;
         }
 
+        /* Modal Details Window */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-xl);
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .modal-hero {
+            height: 250px;
+            width: 100%;
+            position: relative;
+        }
+
+        .modal-hero img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+
+        .modal-subtitle {
+            color: var(--accent-red);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-section-title {
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            margin: 18px 0 10px 0;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 6px;
+        }
+
+        .modal-history-box {
+            background: #0b0f19;
+            border: 1px solid var(--card-border);
+            padding: 15px;
+            border-radius: var(--radius-md);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
         footer {
             text-align: center;
             margin-top: 50px;
@@ -253,7 +349,7 @@
     <div class="container">
         <header>
             <h1><i class="fa-solid fa-gauge-high"></i> APEX MOTORS</h1>
-            <p>Supercar Vault — Fast & Responsive Performance</p>
+            <p>Supercar Vault — Interactive Telemetry & Auction History</p>
         </header>
 
         <!-- Search & Brand Filter -->
@@ -268,8 +364,11 @@
                 <option value="Ferrari">Ferrari</option>
                 <option value="Lamborghini">Lamborghini</option>
                 <option value="Porsche">Porsche</option>
+                <option value="Koenigsegg">Koenigsegg</option>
+                <option value="Pagani">Pagani</option>
                 <option value="McLaren">McLaren</option>
                 <option value="Aston Martin">Aston Martin</option>
+                <option value="Ford">Ford</option>
             </select>
         </div>
 
@@ -281,8 +380,88 @@
         </footer>
     </div>
 
+    <!-- Modal Dialog Popup -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-hero">
+                <img id="modalImg" src="" alt="Supercar">
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title" id="modalTitle">Car Title</h2>
+                <div class="modal-subtitle" id="modalPrice">$0</div>
+
+                <div class="modal-section-title"><i class="fa-solid fa-microchip"></i> Full Telemetry Specs</div>
+                <div class="specs-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                    <div class="spec-item"><span class="spec-label">Horsepower</span><span class="spec-val" id="modalHp">-</span></div>
+                    <div class="spec-item"><span class="spec-label">Top Speed</span><span class="spec-val" id="modalSpeed">-</span></div>
+                    <div class="spec-item"><span class="spec-label">0-60 mph</span><span class="spec-val" id="modalAccel">-</span></div>
+                    <div class="spec-item" style="grid-column: span 3;"><span class="spec-label">Engine</span><span class="spec-val" id="modalEngine">-</span></div>
+                    <div class="spec-item" style="grid-column: span 3;"><span class="spec-label">Production Limit</span><span class="spec-val" id="modalUnits">-</span></div>
+                </div>
+
+                <div class="modal-section-title"><i class="fa-solid fa-chart-line"></i> Sales & Auction History</div>
+                <div class="modal-history-box" id="modalHistory">
+                    Sales history data loading...
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const supercars = [
+            // KOENIGSEGG
+            {
+                brand: "Koenigsegg",
+                name: "Koenigsegg Jesko Absolut",
+                price: "$3,400,000",
+                hp: "1,600 HP",
+                speed: "330 mph (531 km/h)",
+                accel: "2.5 sec",
+                engine: "5.0L Twin-Turbo V8",
+                units: "125 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=75",
+                history: "Originally announced with a base price of $3.0M, all 125 units sold out before production completed. Second-hand allocations have reached private auction bids upwards of $4.2 Million."
+            },
+            {
+                brand: "Koenigsegg",
+                name: "Koenigsegg Regera",
+                price: "$2,000,000",
+                hp: "1,500 HP",
+                speed: "251 mph (404 km/h)",
+                accel: "2.8 sec",
+                engine: "5.0L V8 Twin-Turbo + 3 Electric Motors",
+                units: "80 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=75",
+                history: "Broke the 0-400-0 km/h world record in 2023. Private collector resales consistently command over $3.1 Million at RM Sotheby's auctions."
+            },
+
+            // PAGANI
+            {
+                brand: "Pagani",
+                name: "Pagani Huayra Roadster BC",
+                price: "$3,500,000",
+                hp: "791 HP",
+                speed: "238 mph (383 km/h)",
+                accel: "2.8 sec",
+                engine: "6.0L Twin-Turbo AMG V12",
+                units: "40 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&q=75",
+                history: "Designed as a homage to Benny Caiola. Extreme carbon-titanium body monocoque. Auction sales average around $4.0M in pristine condition."
+            },
+            {
+                brand: "Pagani",
+                name: "Pagani Zonda HP Barchetta",
+                price: "$17,500,000",
+                hp: "789 HP",
+                speed: "221 mph (355 km/h)",
+                accel: "3.1 sec",
+                engine: "7.3L Naturally Aspirated V12",
+                units: "3 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=75",
+                history: "One of the most expensive new production cars ever built. One model is reserved exclusively for Horacio Pagani's private collection."
+            },
+
             // BUGATTI
             {
                 brand: "Bugatti",
@@ -290,17 +469,23 @@
                 price: "$3,900,000",
                 hp: "1,578 HP",
                 speed: "273 mph (440 km/h)",
+                accel: "2.3 sec",
                 engine: "8.0L Quad-Turbo W16",
-                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=75"
+                units: "30 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=75",
+                history: "Recorded official high-speed runs exceeding 300 mph. High private demand keeps auction prices floating around $4.5 Million."
             },
             {
                 brand: "Bugatti",
-                name: "Bugatti Veyron 16.4",
-                price: "$1,900,000",
-                hp: "987 HP",
+                name: "Bugatti Veyron 16.4 Grand Sport",
+                price: "$2,200,000",
+                hp: "1,001 HP",
                 speed: "253 mph (407 km/h)",
+                accel: "2.5 sec",
                 engine: "8.0L Quad-Turbo W16",
-                img: "https://images.unsplash.com/photo-1600712242805-5f78671b24da?auto=format&fit=crop&w=600&q=75"
+                units: "150 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1600712242805-5f78671b24da?auto=format&fit=crop&w=600&q=75",
+                history: "The car that redefined hypercar engineering in 2005. Recent Barrett-Jackson sales averaged between $1.8M to $2.4M."
             },
 
             // FERRARI
@@ -310,48 +495,63 @@
                 price: "$2,200,000",
                 hp: "950 HP",
                 speed: "217 mph (350 km/h)",
+                accel: "2.4 sec",
                 engine: "6.3L V12 Hybrid",
-                img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=600&q=75"
+                units: "210 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=600&q=75",
+                history: "Auction record set at $10 Million during a charity auction in Europe. Continues to appreciate in value faster than standard supercars."
             },
             {
                 brand: "Ferrari",
-                name: "Ferrari SF90 Stradale",
-                price: "$524,000",
-                hp: "986 HP",
+                name: "Ferrari Daytona SP3",
+                price: "$2,250,000",
+                hp: "829 HP",
                 speed: "211 mph (340 km/h)",
-                engine: "4.0L Twin-Turbo V8 Hybrid",
-                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=75"
+                accel: "2.85 sec",
+                engine: "6.5L Naturally Aspirated V12",
+                units: "599 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=75",
+                history: "Part of the Icona series inspired by the 1967 24 Hours of Daytona 1-2-3 finish. Reserved strictly for top Ferrari VIP collectors."
             },
 
             // LAMBORGHINI
             {
                 brand: "Lamborghini",
-                name: "Lamborghini Aventador SVJ",
-                price: "$517,700",
-                hp: "759 HP",
+                name: "Lamborghini Revuelto",
+                price: "$608,000",
+                hp: "1,001 HP",
                 speed: "217 mph (350 km/h)",
-                engine: "6.5L NA V12",
-                img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&q=75"
+                accel: "2.5 sec",
+                engine: "6.5L V12 + 3 Electric Motors",
+                units: "Production Model",
+                img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&q=75",
+                history: "Lamborghini's first HPEV (High Performance Electrified Vehicle) flagship. Sold out for the first two years of production."
             },
             {
                 brand: "Lamborghini",
-                name: "Lamborghini Huracán STO",
-                price: "$330,000",
-                hp: "631 HP",
-                speed: "192 mph (310 km/h)",
-                engine: "5.2L NA V10",
-                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=600&q=75"
+                name: "Lamborghini Veneno Roadster",
+                price: "$4,500,000",
+                hp: "740 HP",
+                speed: "221 mph (355 km/h)",
+                accel: "2.9 sec",
+                engine: "6.5L Naturally Aspirated V12",
+                units: "9 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=600&q=75",
+                history: "Originally sold for $4.5M at release; one model sold at Bonhams auction in Switzerland for an astounding $8.3 Million."
             },
 
             // PORSCHE
             {
                 brand: "Porsche",
-                name: "Porsche 911 GT3 RS",
-                price: "$241,300",
-                hp: "518 HP",
-                speed: "184 mph (296 km/h)",
-                engine: "4.0L Flat-6",
-                img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=600&q=75"
+                name: "Porsche Carrera GT",
+                price: "$440,000",
+                hp: "603 HP",
+                speed: "205 mph (330 km/h)",
+                accel: "3.5 sec",
+                engine: "5.7L V10",
+                units: "1,270 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=600&q=75",
+                history: "Equipped with a Formula 1 derived V10 engine. Values have skyrocketed recently, with low-mileage examples selling for up to $2.0 Million on Bring a Trailer."
             },
             {
                 brand: "Porsche",
@@ -359,19 +559,25 @@
                 price: "$845,000",
                 hp: "887 HP",
                 speed: "214 mph (345 km/h)",
+                accel: "2.2 sec",
                 engine: "4.6L V8 Hybrid",
-                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=75"
+                units: "918 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=75",
+                history: "Set the Nürburgring lap record for street-legal cars in 2013. Current resale valuations range between $1.6M and $2.2M."
             },
 
             // MCLAREN
             {
                 brand: "McLaren",
-                name: "McLaren Speedtail",
-                price: "$2,250,000",
-                hp: "1,035 HP",
-                speed: "250 mph (402 km/h)",
-                engine: "4.0L Twin-Turbo V8 Hybrid",
-                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=600&q=75"
+                name: "McLaren P1 LM",
+                price: "$3,700,000",
+                hp: "986 HP",
+                speed: "217 mph (350 km/h)",
+                accel: "2.4 sec",
+                engine: "3.8L Twin-Turbo V8 Hybrid",
+                units: "6 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=600&q=75",
+                history: "Road-legal conversion of the P1 GTR built by Lanzante. Holds iconic track records across European circuits."
             },
 
             // ASTON MARTIN
@@ -381,8 +587,25 @@
                 price: "$3,500,000",
                 hp: "1,139 HP",
                 speed: "220 mph (354 km/h)",
-                engine: "6.5L V12 Hybrid",
-                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=75"
+                accel: "2.5 sec",
+                engine: "6.5L Cosworth V12 Hybrid",
+                units: "150 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=75",
+                history: "Co-developed with Red Bull Racing Formula 1 engineers. Produces ground-effect downforce comparable to LMP1 race cars."
+            },
+
+            // FORD
+            {
+                brand: "Ford",
+                name: "Ford GT Liquid Carbon",
+                price: "$750,000",
+                hp: "660 HP",
+                speed: "216 mph (348 km/h)",
+                accel: "3.0 sec",
+                engine: "3.5L Twin-Turbo EcoBoost V6",
+                units: "Special Edition",
+                img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=600&q=75",
+                history: "Features an unpainted full carbon-fiber body weave. Mecum auction prices regularly exceed $1.3 Million."
             }
         ];
 
@@ -395,9 +618,9 @@
                 return;
             }
 
-            carList.forEach(car => {
+            carList.forEach((car, idx) => {
                 const card = `
-                    <div class="car-card">
+                    <div class="car-card" onclick="openModal(${idx})">
                         <div class="car-img-wrap">
                             <img src="${car.img}" alt="${car.name}" loading="lazy">
                             <span class="brand-badge">${car.brand}</span>
@@ -419,7 +642,7 @@
                                     <span class="spec-val">${car.engine}</span>
                                 </div>
                             </div>
-                            <button class="btn-details" onclick="alert('Telemetry data for ${car.name}')">View Telemetry</button>
+                            <button class="btn-details">View Full Specs & History</button>
                         </div>
                     </div>
                 `;
@@ -440,6 +663,25 @@
             });
 
             renderCars(filtered);
+        }
+
+        function openModal(index) {
+            const car = supercars[index];
+            document.getElementById('modalImg').src = car.img;
+            document.getElementById('modalTitle').innerText = car.name;
+            document.getElementById('modalPrice').innerText = car.price;
+            document.getElementById('modalHp').innerText = car.hp;
+            document.getElementById('modalSpeed').innerText = car.speed;
+            document.getElementById('modalAccel').innerText = car.accel;
+            document.getElementById('modalEngine').innerText = car.engine;
+            document.getElementById('modalUnits').innerText = car.units;
+            document.getElementById('modalHistory').innerText = car.history;
+
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
         }
 
         renderCars(supercars);
