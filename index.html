@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ApexMotors | Hypercar Vault & Analytics</title>
+    <title>ApexMotors | Ultimate Hypercar Vault & Marketplace</title>
     <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -44,9 +44,40 @@
             margin: 0 auto;
         }
 
+        /* Futuristic Navbar & Logo */
         header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
             margin-bottom: 30px;
+        }
+
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--grad-accent);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 46, 99, 0.4);
+            animation: pulseLogo 3s infinite alternate;
+        }
+
+        @keyframes pulseLogo {
+            0% { box-shadow: 0 0 15px rgba(255, 46, 99, 0.4); }
+            100% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.7); }
         }
 
         header h1 {
@@ -56,7 +87,7 @@
             background: linear-gradient(90deg, #ffffff, #ff2e63);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         header p {
@@ -119,7 +150,7 @@
             font-size: 0.95rem;
         }
 
-        /* Supercar Grid */
+        /* Supercar Grid with Micro-Interactions */
         .cars-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -133,14 +164,15 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             cursor: pointer;
         }
 
         .car-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 46, 99, 0.5);
+            transform: translateY(-6px) scale(1.01);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.25);
         }
 
         .car-img-wrap {
@@ -157,6 +189,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .car-card:hover .car-img-wrap img {
+            transform: scale(1.08);
         }
 
         .brand-badge {
@@ -235,9 +272,14 @@
             justify-content: center;
             align-items: center;
             gap: 8px;
+            transition: opacity 0.2s;
         }
 
-        /* Analytics Modal Window */
+        .btn-details:hover {
+            opacity: 0.9;
+        }
+
+        /* Analytics & Checkout Modal Window */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -257,7 +299,7 @@
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: var(--radius-xl);
-            max-width: 800px;
+            max-width: 850px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
@@ -312,7 +354,38 @@
             color: var(--accent-red);
             font-weight: 700;
             font-size: 1.25rem;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Color Options Picker */
+        .color-picker-group {
+            margin-bottom: 20px;
+        }
+
+        .color-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 12px;
+        }
+
+        .color-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s;
+        }
+
+        .color-dot:hover, .color-dot.selected {
+            transform: scale(1.2);
+            border-color: #fff;
         }
 
         .chart-container {
@@ -343,6 +416,133 @@
             color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Purchase / Checkout Section */
+        .buy-action-wrap {
+            margin-top: 24px;
+        }
+
+        .btn-buy-trigger {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border: none;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .btn-buy-trigger:hover {
+            transform: translateY(-2px);
+        }
+
+        .checkout-form-container {
+            background: #080b14;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .checkout-form-container.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group select {
+            padding: 10px 12px;
+            background: #111827;
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .pay-option {
+            background: #111827;
+            border: 1px solid var(--card-border);
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.85srem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .pay-option.selected {
+            border-color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+        }
+
+        .btn-submit-order {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent-cyan);
+            border: none;
+            color: #080b14;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .order-success-msg {
+            display: none;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 15px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            font-weight: 700;
+            margin-top: 15px;
         }
 
         footer {
@@ -364,9 +564,14 @@
 <body>
 
     <div class="container">
+        <!-- Header with Futuristic Logo -->
         <header>
-            <h1><i class="fa-solid fa-chart-line"></i> APEX MOTORS</h1>
-            <p>Supercar Telemetry, Valuation Analytics & Market Appreciation Trends</p>
+            <div class="brand-logo-container">
+                <div class="logo-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                <span style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: 1px;">APEXMOTORS</span>
+            </div>
+            <h1>Hypercar Vault & Analytics</h1>
+            <p>Explore Verified Telemetry, Valuation Trends & Secure Direct Ordering</p>
         </header>
 
         <!-- Search Controls -->
@@ -397,7 +602,7 @@
         </footer>
     </div>
 
-    <!-- Analytics & Valuation Modal -->
+    <!-- Analytics & Checkout Modal Window -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-card">
             <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -407,6 +612,18 @@
             <div class="modal-body">
                 <h2 class="modal-title" id="modalTitle">Car Title</h2>
                 <div class="modal-subtitle" id="modalPrice">$0</div>
+
+                <!-- Color Options Customizer -->
+                <div class="color-picker-group">
+                    <span class="color-label"><i class="fa-solid fa-palette"></i> Select Exterior Finish:</span>
+                    <div class="color-options">
+                        <div class="color-dot selected" style="background: #111827;" onclick="selectColor(this, 'Liquid Carbon Black')"></div>
+                        <div class="color-dot" style="background: #ff2e63;" onclick="selectColor(this, 'Rosso Corsa Red')"></div>
+                        <div class="color-dot" style="background: #06b6d4;" onclick="selectColor(this, 'Cyan Velocity')"></div>
+                        <div class="color-dot" style="background: #e5e7eb;" onclick="selectColor(this, 'Bianco Monocerus White')"></div>
+                        <div class="color-dot" style="background: #f59e0b;" onclick="selectColor(this, 'Midas Gold')"></div>
+                    </div>
+                </div>
 
                 <!-- Live Chart.js Rendering Container -->
                 <div class="modal-section-title"><i class="fa-solid fa-chart-area"></i> Valuation & Auction Appreciation (5-Year Trend)</div>
@@ -427,6 +644,57 @@
                 <div class="modal-history-box" id="modalHistory">
                     Data loading...
                 </div>
+
+                <!-- Comprehensive Purchase & Checkout Workflow -->
+                <div class="buy-action-wrap">
+                    <button class="btn-buy-trigger" onclick="toggleCheckoutForm()">
+                        <i class="fa-solid fa-cart-shopping"></i> Proceed to Order & Secure Purchase
+                    </button>
+
+                    <div class="checkout-form-container" id="checkoutForm">
+                        <h3 style="margin-bottom: 12px; font-size: 1.1rem; color: var(--accent-green);"><i class="fa-solid fa-lock"></i> Secure Allocation Checkout</h3>
+                        <form id="orderForm" onsubmit="submitOrder(event)">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" id="custName" required placeholder="e.g. Sinan Miraj">
+                                </div>
+                                <div class="form-group">
+                                    <label>Mobile Number</label>
+                                    <input type="tel" id="custPhone" required placeholder="+92 300 0000000">
+                                </div>
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    <input type="text" id="custCountry" required placeholder="Pakistan">
+                                </div>
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" id="custCity" required placeholder="Kohat">
+                                </div>
+                                <div class="form-group full">
+                                    <label>Fulfillment Preference</label>
+                                    <select id="deliveryType" required>
+                                        <option value="Hand-to-Hand VIP Delivery">Hand-to-Hand VIP Secure Delivery</option>
+                                        <option value="Online Global Freight Shipping">Online Global Freight Shipping</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <label class="form-group label" style="margin-bottom: 8px; display:block;">Select Payment Gateway</label>
+                            <div class="payment-methods">
+                                <div class="pay-option selected" onclick="selectPayment(this, 'Bank Transfer')">Bank Transfer</div>
+                                <div class="pay-option" onclick="selectPayment(this, 'Credit Card (Visa)')">Visa Card</div>
+                                <div class="pay-option" onclick="selectPayment(this, 'UnionPay')">UnionPay</div>
+                            </div>
+
+                            <button type="submit" class="btn-submit-order">Confirm & Place Allocation Order</button>
+                        </form>
+                        <div class="order-success-msg" id="successMsg">
+                            <i class="fa-solid fa-circle-check"></i> Order successfully placed! Our ApexMotors concierge team will contact you shortly.
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -434,8 +702,10 @@
     <script>
         const fallbackSVG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400' fill='%23111827'><rect width='100%' height='100%'/><text x='50%' y='50%' font-family='sans-serif' font-size='28' fill='%2306b6d4' text-anchor='middle' dominant-baseline='middle'>APEX MOTORS HYPERCAR TELEMETRY</text></svg>";
 
+        let selectedCarColor = "Liquid Carbon Black";
+        let selectedPaymentMethod = "Bank Transfer";
+
         const supercars = [
-            // KOENIGSEGG
             {
                 brand: "Koenigsegg",
                 name: "Koenigsegg Jesko Absolut",
@@ -463,21 +733,6 @@
                 history: "Broke the 0-400-0 km/h world record. Resales at RM Sotheby's auctions have shown steady yearly price gains."
             },
             {
-                brand: "Koenigsegg",
-                name: "Koenigsegg Gemera",
-                price: "$1,700,000",
-                hp: "2,300 HP",
-                speed: "250 mph (400 km/h)",
-                accel: "1.9 sec",
-                engine: "5.0L Dark Matter V8 Hybrid",
-                units: "300 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
-                chartData: [1.7, 1.85, 2.1, 2.4, 2.7],
-                history: "World's first 4-seater Mega-GT. High demand due to its revolutionary Dark Matter E-motor powertrain."
-            },
-
-            // BUGATTI
-            {
                 brand: "Bugatti",
                 name: "Bugatti Chiron Super Sport",
                 price: "$3,900,000",
@@ -490,21 +745,6 @@
                 chartData: [3.8, 4.0, 4.3, 4.7, 5.1],
                 history: "Marks the final era of Bugatti's Quad-Turbo W16 internal combustion platform. Highly coveted by global private collectors."
             },
-            {
-                brand: "Bugatti",
-                name: "Bugatti Bolide",
-                price: "$4,400,000",
-                hp: "1,825 HP",
-                speed: "311 mph (500 km/h)",
-                accel: "2.17 sec",
-                engine: "8.0L Quad-Turbo W16",
-                units: "40 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80",
-                chartData: [4.4, 4.8, 5.2, 5.8, 6.4],
-                history: "Track-only hypercar with an extreme weight-to-power ratio of 0.67 kg per horsepower."
-            },
-
-            // FERRARI
             {
                 brand: "Ferrari",
                 name: "LaFerrari Aperta",
@@ -519,21 +759,6 @@
                 history: "Auction price records reached $10 Million during European charity auctions. Represents Ferrari's flagship hybrid pinnacle."
             },
             {
-                brand: "Ferrari",
-                name: "Ferrari Monza SP2",
-                price: "$1,800,000",
-                hp: "809 HP",
-                speed: "186 mph (300 km/h)",
-                accel: "2.9 sec",
-                engine: "6.5L Naturally Aspirated V12",
-                units: "499 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80",
-                chartData: [1.8, 2.2, 2.6, 3.1, 3.6],
-                history: "Part of the Icona series with no windshield, paying tribute to 1950s speedsters."
-            },
-
-            // LAMBORGHINI
-            {
                 brand: "Lamborghini",
                 name: "Lamborghini Aventador SVJ",
                 price: "$517,700",
@@ -546,21 +771,6 @@
                 chartData: [0.55, 0.62, 0.71, 0.82, 0.95],
                 history: "Nürburgring production lap record holder. The last non-electrified pure V12 flagship from Sant'Agata Bolognese."
             },
-            {
-                brand: "Lamborghini",
-                name: "Lamborghini Sián FKP 37",
-                price: "$3,700,000",
-                hp: "808 HP",
-                speed: "220 mph (355 km/h)",
-                accel: "2.8 sec",
-                engine: "6.5L V12 Supercapacitor Hybrid",
-                units: "63 Coupe Units Worldwide",
-                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80",
-                chartData: [3.7, 4.0, 4.4, 4.8, 5.3],
-                history: "Lamborghini's first hybrid vehicle incorporating supercapacitor technology instead of lithium-ion batteries."
-            },
-
-            // PAGANI
             {
                 brand: "Pagani",
                 name: "Pagani Huayra Roadster BC",
@@ -575,21 +785,6 @@
                 history: "Handcrafted carbon-titanium body architecture. Resale valuations hold at roughly $4.8M on private trade networks."
             },
             {
-                brand: "Pagani",
-                name: "Pagani Utopia",
-                price: "$2,500,000",
-                hp: "852 HP",
-                speed: "220 mph (354 km/h)",
-                accel: "2.9 sec",
-                engine: "6.0L Twin-Turbo AMG V12 Manual",
-                units: "99 Coupe Units Worldwide",
-                img: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80",
-                chartData: [2.5, 2.8, 3.2, 3.6, 4.1],
-                history: "Six-year engineering development retaining a gated manual transmission without hybrid electrification."
-            },
-
-            // PORSCHE
-            {
                 brand: "Porsche",
                 name: "Porsche 911 GT3 RS",
                 price: "$241,300",
@@ -602,8 +797,6 @@
                 chartData: [0.25, 0.32, 0.38, 0.44, 0.50],
                 history: "Active DRS rear wing aerodynamics. Secondary dealer allocations command up to $150,000 over original MSRP."
             },
-
-            // RIMAC
             {
                 brand: "Rimac",
                 name: "Rimac Nevera",
@@ -617,36 +810,6 @@
                 chartData: [2.4, 2.5, 2.7, 2.9, 3.1],
                 history: "Holds over 20 acceleration world records. Croatian EV engineering flagship."
             },
-
-            // MCLAREN
-            {
-                brand: "McLaren",
-                name: "McLaren Speedtail",
-                price: "$2,250,000",
-                hp: "1,035 HP",
-                speed: "250 mph (402 km/h)",
-                accel: "2.5 sec",
-                engine: "4.0L Twin-Turbo V8 Hybrid",
-                units: "106 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80",
-                chartData: [2.25, 2.4, 2.65, 2.9, 3.2],
-                history: "3-seater central driving position inspired by the legendary McLaren F1."
-            },
-            {
-                brand: "McLaren",
-                name: "McLaren Senna GTR",
-                price: "$1,650,000",
-                hp: "814 HP",
-                speed: "211 mph (340 km/h)",
-                accel: "2.7 sec",
-                engine: "4.0L Twin-Turbo V8",
-                units: "75 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80",
-                chartData: [1.65, 1.8, 2.0, 2.2, 2.45],
-                history: "Track-only version delivering 1,000 kg of aerodynamic downforce."
-            },
-
-            // ASTON MARTIN
             {
                 brand: "Aston Martin",
                 name: "Aston Martin Valkyrie",
@@ -698,7 +861,7 @@
                                 </div>
                             </div>
                             <button class="btn-details">
-                                <i class="fa-solid fa-chart-line"></i> View Analytics & Telemetry
+                                <i class="fa-solid fa-chart-line"></i> View Specs, Analytics & Buy
                             </button>
                         </div>
                     </div>
@@ -734,13 +897,42 @@
             document.getElementById('modalUnits').innerText = car.units;
             document.getElementById('modalHistory').innerText = car.history;
 
-            document.getElementById('modalOverlay').classList.add('active');
+            // Reset checkout state
+            document.getElementById('checkoutForm').classList.remove('active');
+            document.getElementById('successMsg').style.display = 'none';
+            document.getElementById('orderForm').reset();
 
+            document.getElementById('modalOverlay').classList.add('active');
             renderChart(car.chartData || [2.0, 2.2, 2.5, 2.8, 3.2]);
         }
 
         function closeModal() {
             document.getElementById('modalOverlay').classList.remove('active');
+        }
+
+        function selectColor(element, colorName) {
+            document.querySelectorAll('.color-dot').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedCarColor = colorName;
+        }
+
+        function toggleCheckoutForm() {
+            const form = document.getElementById('checkoutForm');
+            form.classList.toggle('active');
+        }
+
+        function selectPayment(element, method) {
+            document.querySelectorAll('.pay-option').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedPaymentMethod = method;
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+            document.getElementById('successMsg').style.display = 'block';
+            setTimeout(() => {
+                alert(`Order confirmed for ${selectedCarColor} finish via ${selectedPaymentMethod}!`);
+            }, 300);
         }
 
         function renderChart(dataPoints) {
