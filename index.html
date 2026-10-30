@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ApexMotors | Ultimate Hypercar Vault & Marketplace</title>
+    <title>ApexMotors | World-Class Luxury Hypercar Vault</title>
     <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Chart.js Engine CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         :root {
-            --bg-dark: #080b14;
-            --card-bg: #111827;
-            --card-border: #1f2937;
-            --accent-red: #ff2e63;
-            --accent-cyan: #06b6d4;
-            --accent-green: #10b981;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-            --grad-accent: linear-gradient(135deg, #ff2e63 0%, #ff8e53 100%);
-            --radius-xl: 16px;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --accent-gold: #d97706;
+            --accent-emerald: #059669;
+            --accent-blue: #2563eb;
+            --radius-xl: 18px;
             --radius-md: 10px;
+            --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.05);
+            --shadow-hover: 0 20px 40px rgba(15, 23, 42, 0.12);
         }
 
         * {
@@ -33,10 +34,22 @@
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             min-height: 100vh;
             padding: 30px 15px;
+            animation: pageEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes pageEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .container {
@@ -44,69 +57,69 @@
             margin: 0 auto;
         }
 
-        /* Futuristic Navbar & Logo */
+        /* World-Class Luxury Header & Logo */
         header {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .brand-logo-container {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-decoration: none;
         }
 
         .logo-icon {
             width: 48px;
             height: 48px;
-            background: var(--grad-accent);
+            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
             border-radius: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
-            color: #fff;
-            box-shadow: 0 0 20px rgba(255, 46, 99, 0.4);
-            animation: pulseLogo 3s infinite alternate;
+            font-size: 1.4rem;
+            color: #fbbf24;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+            animation: pulseGold 3s infinite alternate;
         }
 
-        @keyframes pulseLogo {
-            0% { box-shadow: 0 0 15px rgba(255, 46, 99, 0.4); }
-            100% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.7); }
+        @keyframes pulseGold {
+            0% { box-shadow: 0 0 15px rgba(217, 119, 6, 0.2); }
+            100% { box-shadow: 0 0 25px rgba(251, 191, 36, 0.5); }
         }
 
         header h1 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 2.8rem;
             font-weight: 700;
-            background: linear-gradient(90deg, #ffffff, #ff2e63);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 4px;
+            letter-spacing: -1px;
+            color: var(--text-dark);
+            margin-bottom: 6px;
         }
 
         header p {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 1.05rem;
+            font-weight: 500;
         }
 
-        /* Search Controls */
+        /* Search & Filter Controls */
         .controls {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: var(--radius-xl);
-            padding: 20px;
+            padding: 18px 24px;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             align-items: center;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            margin-bottom: 35px;
+            box-shadow: var(--shadow-subtle);
         }
 
         .search-box {
@@ -120,37 +133,39 @@
             left: 16px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--accent-red);
+            color: var(--accent-gold);
         }
 
         .search-box input {
             width: 100%;
             padding: 12px 16px 12px 45px;
-            background: #080b14;
+            background: #f1f5f9;
             border: 1px solid var(--card-border);
             border-radius: var(--radius-md);
-            color: var(--text-main);
+            color: var(--text-dark);
             font-size: 0.95rem;
             outline: none;
-            transition: border-color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .search-box input:focus {
-            border-color: var(--accent-red);
+            border-color: var(--accent-gold);
+            background: #ffffff;
         }
 
         .filter-select {
             padding: 12px 16px;
-            background: #080b14;
+            background: #f1f5f9;
             border: 1px solid var(--card-border);
             border-radius: var(--radius-md);
-            color: var(--text-main);
+            color: var(--text-dark);
             outline: none;
             cursor: pointer;
             font-size: 0.95rem;
+            font-weight: 600;
         }
 
-        /* Supercar Grid with Micro-Interactions (Bubble/Scale Effect) */
+        /* Supercar Grid with Clean Light Animations */
         .cars-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -165,53 +180,52 @@
             display: flex;
             flex-direction: column;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: var(--shadow-subtle);
             cursor: pointer;
         }
 
         .car-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3);
+            transform: translateY(-8px) scale(1.015);
+            border-color: #cbd5e1;
+            box-shadow: var(--shadow-hover);
         }
 
         .car-img-wrap {
             position: relative;
-            height: 210px;
-            background: #000;
+            height: 220px;
+            background: #f1f5f9;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         .car-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .car-card:hover .car-img-wrap img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
         .brand-badge {
             position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(8, 11, 20, 0.85);
+            top: 14px;
+            right: 14px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
             border: 1px solid var(--card-border);
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
+            font-weight: 800;
+            color: var(--text-dark);
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .car-content {
-            padding: 20px;
+            padding: 22px;
             display: flex;
             flex-direction: column;
             flex: 1;
@@ -219,15 +233,16 @@
 
         .car-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 6px;
+            color: var(--text-dark);
+            margin-bottom: 4px;
         }
 
         .car-price {
-            color: var(--accent-red);
-            font-weight: 700;
-            font-size: 1.1rem;
+            color: var(--accent-gold);
+            font-weight: 800;
+            font-size: 1.2rem;
             margin-bottom: 16px;
         }
 
@@ -235,11 +250,11 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            background: #080b14;
+            background: #f8fafc;
             border: 1px solid var(--card-border);
             padding: 12px;
             border-radius: var(--radius-md);
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
         .spec-item {
@@ -250,21 +265,22 @@
             color: var(--text-muted);
             display: block;
             font-size: 0.75rem;
+            font-weight: 600;
             text-transform: uppercase;
         }
 
         .spec-val {
-            font-weight: 600;
-            color: var(--text-main);
+            font-weight: 700;
+            color: var(--text-dark);
         }
 
         .btn-details {
             width: 100%;
-            padding: 11px;
-            background: var(--grad-accent);
+            padding: 12px;
+            background: #0f172a;
             border: none;
-            color: #fff;
-            font-weight: 600;
+            color: #ffffff;
+            font-weight: 700;
             border-radius: var(--radius-md);
             cursor: pointer;
             margin-top: auto;
@@ -272,18 +288,19 @@
             justify-content: center;
             align-items: center;
             gap: 8px;
-            transition: opacity 0.2s;
+            transition: background 0.2s;
         }
 
         .btn-details:hover {
-            opacity: 0.9;
+            background: #1e293b;
         }
 
-        /* Analytics & Checkout Modal Window */
+        /* Light Luxury Modal Overlay */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(6px);
             display: none;
             justify-content: center;
             align-items: center;
@@ -296,7 +313,7 @@
         }
 
         .modal-card {
-            background: var(--card-bg);
+            background: #ffffff;
             border: 1px solid var(--card-border);
             border-radius: var(--radius-xl);
             max-width: 850px;
@@ -304,25 +321,25 @@
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+            animation: modalPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+        @keyframes modalPopIn {
+            from { opacity: 0; transform: scale(0.95) translateY(15px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         .modal-close {
             position: absolute;
-            top: 15px; right: 15px;
-            background: rgba(0,0,0,0.7);
+            top: 16px; right: 16px;
+            background: rgba(255, 255, 255, 0.85);
             border: 1px solid var(--card-border);
-            color: #fff;
-            width: 36px; height: 36px;
+            color: var(--text-dark);
+            width: 38px; height: 38px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -330,9 +347,9 @@
         }
 
         .modal-hero {
-            height: 260px;
+            height: 280px;
             width: 100%;
-            background: #000;
+            background: #f1f5f9;
             position: relative;
         }
 
@@ -346,25 +363,27 @@
 
         .modal-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 4px;
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--text-dark);
         }
 
         .modal-subtitle {
-            color: var(--accent-red);
-            font-weight: 700;
-            font-size: 1.25rem;
+            color: var(--accent-gold);
+            font-weight: 800;
+            font-size: 1.3rem;
             margin-bottom: 20px;
         }
 
-        /* Color Options Picker */
+        /* Custom Color Options */
         .color-picker-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .color-label {
             font-size: 0.9rem;
             color: var(--text-muted);
+            font-weight: 600;
             margin-bottom: 8px;
             display: block;
         }
@@ -375,32 +394,32 @@
         }
 
         .color-dot {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             cursor: pointer;
-            border: 2px solid transparent;
-            transition: transform 0.2s;
+            border: 3px solid #e2e8f0;
+            transition: transform 0.2s, border-color 0.2s;
         }
 
         .color-dot:hover, .color-dot.selected {
             transform: scale(1.2);
-            border-color: #fff;
+            border-color: #0f172a;
         }
 
         .chart-container {
-            background: #080b14;
+            background: #f8fafc;
             border: 1px solid var(--card-border);
             padding: 20px;
             border-radius: var(--radius-md);
             margin-bottom: 24px;
-            position: relative;
         }
 
         .modal-section-title {
             font-size: 1.1rem;
-            color: var(--accent-cyan);
-            margin: 20px 0 12px 0;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 22px 0 12px 0;
             border-bottom: 1px solid var(--card-border);
             padding-bottom: 6px;
             display: flex;
@@ -409,7 +428,7 @@
         }
 
         .modal-history-box {
-            background: #080b14;
+            background: #f8fafc;
             border: 1px solid var(--card-border);
             padding: 16px;
             border-radius: var(--radius-md);
@@ -419,26 +438,22 @@
             margin-bottom: 20px;
         }
 
-        /* Purchase / Checkout Section */
-        .buy-action-wrap {
-            margin-top: 24px;
-        }
-
+        /* Order & Buy Button Trigger */
         .btn-buy-trigger {
             width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 15px;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
             border: none;
-            color: #fff;
+            color: #ffffff;
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             border-radius: var(--radius-md);
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 4px 18px rgba(5, 150, 105, 0.25);
             transition: transform 0.2s;
         }
 
@@ -446,12 +461,13 @@
             transform: translateY(-2px);
         }
 
+        /* Dedicated Buying Feature & Specs Popup */
         .checkout-form-container {
-            background: #080b14;
+            background: #f8fafc;
             border: 1px solid var(--card-border);
             border-radius: var(--radius-md);
-            padding: 20px;
-            margin-top: 15px;
+            padding: 24px;
+            margin-top: 18px;
             display: none;
         }
 
@@ -460,11 +476,24 @@
             animation: fadeIn 0.3s ease;
         }
 
+        .car-summary-banner {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            padding: 16px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 15px;
+            gap: 14px;
+            margin-bottom: 16px;
         }
 
         .form-group {
@@ -479,66 +508,68 @@
 
         .form-group label {
             font-size: 0.85rem;
-            color: var(--text-muted);
+            font-weight: 600;
+            color: var(--text-dark);
         }
 
         .form-group input, .form-group select {
-            padding: 10px 12px;
-            background: #111827;
+            padding: 11px 14px;
+            background: #ffffff;
             border: 1px solid var(--card-border);
             border-radius: 6px;
-            color: #fff;
-            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-size: 0.95rem;
             outline: none;
         }
 
         .form-group input:focus {
-            border-color: var(--accent-cyan);
+            border-color: var(--accent-gold);
         }
 
         .payment-methods {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .pay-option {
-            background: #111827;
+            background: #ffffff;
             border: 1px solid var(--card-border);
-            padding: 10px;
+            padding: 12px;
             border-radius: 6px;
             text-align: center;
             cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-dark);
             transition: all 0.2s;
         }
 
         .pay-option.selected {
-            border-color: var(--accent-cyan);
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--accent-cyan);
+            border-color: var(--accent-gold);
+            background: #fffbebf5;
+            color: var(--accent-gold);
         }
 
         .btn-submit-order {
             width: 100%;
-            padding: 12px;
-            background: var(--accent-cyan);
+            padding: 14px;
+            background: #0f172a;
             border: none;
-            color: #080b14;
+            color: #ffffff;
             font-weight: 700;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.05rem;
         }
 
         .order-success-msg {
             display: none;
-            background: rgba(16, 185, 129, 0.15);
-            border: 1px solid var(--accent-green);
-            color: var(--accent-green);
-            padding: 15px;
+            background: rgba(5, 150, 105, 0.1);
+            border: 1px solid var(--accent-emerald);
+            color: var(--accent-emerald);
+            padding: 16px;
             border-radius: var(--radius-md);
             text-align: center;
             font-weight: 700;
@@ -550,6 +581,7 @@
             margin-top: 50px;
             color: var(--text-muted);
             font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .no-results {
@@ -564,14 +596,14 @@
 <body>
 
     <div class="container">
-        <!-- Header with Futuristic Logo -->
+        <!-- World-Class Header & Animated Brand Logo -->
         <header>
             <div class="brand-logo-container">
-                <div class="logo-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
-                <span style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: 1px;">APEXMOTORS</span>
+                <div class="logo-icon"><i class="fa-solid fa-crown"></i></div>
+                <span style="font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 800; letter-spacing: 2px; color: var(--text-dark);">APEXMOTORS</span>
             </div>
-            <h1>Hypercar Vault & Analytics</h1>
-            <p>Explore Verified Telemetry, Valuation Trends & Secure Direct Ordering</p>
+            <h1>The Global Hypercar Vault</h1>
+            <p>Direct Factory Allocation, Verified Telemetry & Bespoke Concierge Procurement</p>
         </header>
 
         <!-- Search Controls -->
@@ -581,7 +613,7 @@
                 <input type="text" id="searchInput" onkeyup="filterCars()" placeholder="Search supercar by model, engine, or manufacturer...">
             </div>
             <select id="brandFilter" class="filter-select" onchange="filterCars()">
-                <option value="ALL">All Manufacturers</option>
+                <option value="ALL">All World Brands</option>
                 <option value="Koenigsegg">Koenigsegg</option>
                 <option value="Bugatti">Bugatti</option>
                 <option value="Ferrari">Ferrari</option>
@@ -594,15 +626,15 @@
             </select>
         </div>
 
-        <!-- Supercar List -->
+        <!-- Supercar Grid -->
         <div class="cars-grid" id="carsGrid"></div>
 
         <footer>
-            <p>&copy; 2026 Sinan Miraj. Engineered for High Performance Deployment on GitHub Pages.</p>
+            <p>&copy; 2026 Sinan Miraj. Designed for World-Class High Performance Deployment on GitHub Pages.</p>
         </footer>
     </div>
 
-    <!-- Analytics & Checkout Modal Window -->
+    <!-- Analytics & Buy Allocation Modal -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-card">
             <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -613,25 +645,25 @@
                 <h2 class="modal-title" id="modalTitle">Car Title</h2>
                 <div class="modal-subtitle" id="modalPrice">$0</div>
 
-                <!-- Color Options Customizer -->
+                <!-- Color Selector -->
                 <div class="color-picker-group">
-                    <span class="color-label"><i class="fa-solid fa-palette"></i> Select Exterior Finish:</span>
+                    <span class="color-label"><i class="fa-solid fa-palette"></i> Select Bespoke Exterior Finish:</span>
                     <div class="color-options">
-                        <div class="color-dot selected" style="background: #111827;" onclick="selectColor(this, 'Liquid Carbon Black')"></div>
-                        <div class="color-dot" style="background: #ff2e63;" onclick="selectColor(this, 'Rosso Corsa Red')"></div>
-                        <div class="color-dot" style="background: #06b6d4;" onclick="selectColor(this, 'Cyan Velocity')"></div>
-                        <div class="color-dot" style="background: #e5e7eb;" onclick="selectColor(this, 'Bianco Monocerus White')"></div>
-                        <div class="color-dot" style="background: #f59e0b;" onclick="selectColor(this, 'Midas Gold')"></div>
+                        <div class="color-dot selected" style="background: #0f172a;" onclick="selectColor(this, 'Liquid Carbon Black')"></div>
+                        <div class="color-dot" style="background: #dc2626;" onclick="selectColor(this, 'Rosso Corsa Red')"></div>
+                        <div class="color-dot" style="background: #0284c7;" onclick="selectColor(this, 'Cyan Velocity')"></div>
+                        <div class="color-dot" style="background: #f1f5f9;" onclick="selectColor(this, 'Bianco Monocerus White')"></div>
+                        <div class="color-dot" style="background: #d97706;" onclick="selectColor(this, 'Midas Gold')"></div>
                     </div>
                 </div>
 
-                <!-- Live Chart.js Rendering Container -->
-                <div class="modal-section-title"><i class="fa-solid fa-chart-area"></i> Valuation & Auction Appreciation (5-Year Trend)</div>
+                <!-- Chart Container -->
+                <div class="modal-section-title"><i class="fa-solid fa-chart-line"></i> Valuation & Market Appreciation (5-Year Trend)</div>
                 <div class="chart-container">
                     <canvas id="valuationChart" height="200"></canvas>
                 </div>
 
-                <div class="modal-section-title"><i class="fa-solid fa-microchip"></i> Verified Engine & Performance Telemetry</div>
+                <div class="modal-section-title"><i class="fa-solid fa-microchip"></i> Engine & Performance Telemetry</div>
                 <div class="specs-grid" style="grid-template-columns: repeat(3, 1fr);">
                     <div class="spec-item"><span class="spec-label">Power Output</span><span class="spec-val" id="modalHp">-</span></div>
                     <div class="spec-item"><span class="spec-label">Top Velocity</span><span class="spec-val" id="modalSpeed">-</span></div>
@@ -640,19 +672,28 @@
                     <div class="spec-item" style="grid-column: span 3;"><span class="spec-label">Global Production Volume</span><span class="spec-val" id="modalUnits">-</span></div>
                 </div>
 
-                <div class="modal-section-title"><i class="fa-solid fa-file-contract"></i> Historical Market Analysis & Auction Notes</div>
+                <div class="modal-section-title"><i class="fa-solid fa-file-contract"></i> Historical Analysis</div>
                 <div class="modal-history-box" id="modalHistory">
                     Data loading...
                 </div>
 
-                <!-- Comprehensive Purchase & Checkout Workflow -->
-                <div class="buy-action-wrap">
+                <!-- Direct Buying Flow Interface -->
+                <div style="margin-top: 24px;">
                     <button class="btn-buy-trigger" onclick="toggleCheckoutForm()">
-                        <i class="fa-solid fa-cart-shopping"></i> Proceed to Order & Secure Purchase
+                        <i class="fa-solid fa-bag-shopping"></i> Order & Secure Allocation
                     </button>
 
                     <div class="checkout-form-container" id="checkoutForm">
-                        <h3 style="margin-bottom: 12px; font-size: 1.1rem; color: var(--accent-green);"><i class="fa-solid fa-lock"></i> Secure Allocation Checkout</h3>
+                        <!-- Feature Summary Header inside Checkout -->
+                        <div class="car-summary-banner">
+                            <div>
+                                <strong id="summaryCarTitle" style="font-size: 1.1rem;">-</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-muted);" id="summaryCarSpecs">-</p>
+                            </div>
+                            <span id="summaryCarPrice" style="font-weight: 800; color: var(--accent-gold); font-size: 1.1rem;">-</span>
+                        </div>
+
+                        <h3 style="margin-bottom: 14px; font-size: 1.1rem; color: var(--text-dark);"><i class="fa-solid fa-shield-halved"></i> Customer Procurement Details</h3>
                         <form id="orderForm" onsubmit="submitOrder(event)">
                             <div class="form-grid">
                                 <div class="form-group">
@@ -660,7 +701,7 @@
                                     <input type="text" id="custName" required placeholder="e.g. Sinan Miraj">
                                 </div>
                                 <div class="form-group">
-                                    <label>Mobile Number</label>
+                                    <label>Mobile Phone Number</label>
                                     <input type="tel" id="custPhone" required placeholder="+92 300 0000000">
                                 </div>
                                 <div class="form-group">
@@ -672,25 +713,26 @@
                                     <input type="text" id="custCity" required placeholder="Kohat">
                                 </div>
                                 <div class="form-group full">
-                                    <label>Fulfillment Preference</label>
+                                    <label>Fulfillment / Delivery Method</label>
                                     <select id="deliveryType" required>
-                                        <option value="Hand-to-Hand VIP Delivery">Hand-to-Hand VIP Secure Delivery</option>
-                                        <option value="Online Global Freight Shipping">Online Global Freight Shipping</option>
+                                        <option value="Hand-to-Hand Handover Delivery">Hand-to-Hand Direct VIP Handover</option>
+                                        <option value="Online Insured Freight Order">Online Insured Global Air Freight</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <label class="form-group label" style="margin-bottom: 8px; display:block;">Select Payment Gateway</label>
+                            <label class="form-group label" style="margin-bottom: 8px; display:block; font-weight:600;">Select Secure Payment Gateway</label>
                             <div class="payment-methods">
-                                <div class="pay-option selected" onclick="selectPayment(this, 'Bank Transfer')">Bank Transfer</div>
+                                <div class="pay-option selected" onclick="selectPayment(this, 'Bank Transfer')">Bank Wire</div>
                                 <div class="pay-option" onclick="selectPayment(this, 'Credit Card (Visa)')">Visa Card</div>
                                 <div class="pay-option" onclick="selectPayment(this, 'UnionPay')">UnionPay</div>
                             </div>
 
-                            <button type="submit" class="btn-submit-order">Confirm & Place Allocation Order</button>
+                            <button type="submit" class="btn-submit-order">Confirm Allocation Purchase</button>
                         </form>
+
                         <div class="order-success-msg" id="successMsg">
-                            <i class="fa-solid fa-circle-check"></i> Order successfully placed! Our ApexMotors concierge team will contact you shortly.
+                            <i class="fa-solid fa-circle-check"></i> Allocation request submitted! Our concierge team will contact you shortly.
                         </div>
                     </div>
                 </div>
@@ -700,10 +742,11 @@
     </div>
 
     <script>
-        const fallbackSVG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400' fill='%23111827'><rect width='100%' height='100%'/><text x='50%' y='50%' font-family='sans-serif' font-size='28' fill='%2306b6d4' text-anchor='middle' dominant-baseline='middle'>APEX MOTORS HYPERCAR TELEMETRY</text></svg>";
+        const fallbackSVG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400' fill='%23f1f5f9'><rect width='100%' height='100%'/><text x='50%' y='50%' font-family='sans-serif' font-size='26' fill='%230f172a' text-anchor='middle' dominant-baseline='middle'>APEX MOTORS LUXURY TELEMETRY</text></svg>";
 
         let selectedCarColor = "Liquid Carbon Black";
         let selectedPaymentMethod = "Bank Transfer";
+        let activeCarIndex = 0;
 
         const supercars = [
             {
@@ -861,7 +904,7 @@
                                 </div>
                             </div>
                             <button class="btn-details">
-                                <i class="fa-solid fa-chart-line"></i> View Specs, Analytics & Buy
+                                <i class="fa-solid fa-eye"></i> Explore Specs & Valuation
                             </button>
                         </div>
                     </div>
@@ -886,6 +929,7 @@
         }
 
         function openModal(index) {
+            activeCarIndex = index;
             const car = supercars[index];
             document.getElementById('modalImg').src = car.img;
             document.getElementById('modalTitle').innerText = car.name;
@@ -897,7 +941,12 @@
             document.getElementById('modalUnits').innerText = car.units;
             document.getElementById('modalHistory').innerText = car.history;
 
-            // Reset checkout state
+            // Summary Info inside Buy Interface
+            document.getElementById('summaryCarTitle').innerText = car.name;
+            document.getElementById('summaryCarSpecs').innerText = `${car.hp} | ${car.engine} | ${car.speed}`;
+            document.getElementById('summaryCarPrice').innerText = car.price;
+
+            // Reset Checkout Box State
             document.getElementById('checkoutForm').classList.remove('active');
             document.getElementById('successMsg').style.display = 'none';
             document.getElementById('orderForm').reset();
@@ -931,7 +980,7 @@
             event.preventDefault();
             document.getElementById('successMsg').style.display = 'block';
             setTimeout(() => {
-                alert(`Order confirmed for ${selectedCarColor} finish via ${selectedPaymentMethod}!`);
+                alert(`Allocation successfully reserved in ${selectedCarColor} finish via ${selectedPaymentMethod}!`);
             }, 300);
         }
 
@@ -947,26 +996,26 @@
                 data: {
                     labels: ['2022', '2023', '2024', '2025', '2026 (Est.)'],
                     datasets: [{
-                        label: 'Average Market Valuation ($ Millions USD)',
+                        label: 'Valuation Trend ($ Millions USD)',
                         data: dataPoints,
-                        borderColor: '#ff2e63',
-                        backgroundColor: 'rgba(255, 46, 99, 0.12)',
-                        borderWidth: 3,
+                        borderColor: '#d97706',
+                        backgroundColor: 'rgba(217, 119, 6, 0.08)',
+                        borderWidth: 2.5,
                         fill: true,
-                        tension: 0.35,
-                        pointBackgroundColor: '#06b6d4',
-                        pointRadius: 5
+                        tension: 0.3,
+                        pointBackgroundColor: '#0f172a',
+                        pointRadius: 4
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { labels: { color: '#9ca3af', font: { family: 'Plus Jakarta Sans' } } }
+                        legend: { labels: { color: '#64748b', font: { family: 'Plus Jakarta Sans', weight: '600' } } }
                     },
                     scales: {
-                        x: { ticks: { color: '#9ca3af' }, grid: { color: '#1f2937' } },
-                        y: { ticks: { color: '#9ca3af' }, grid: { color: '#1f2937' } }
+                        x: { ticks: { color: '#64748b' }, grid: { color: '#e2e8f0' } },
+                        y: { ticks: { color: '#64748b' }, grid: { color: '#e2e8f0' } }
                     }
                 }
             });
