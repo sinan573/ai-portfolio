@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ApexMotors | World-Class Luxury Hypercar Vault</title>
+    <title>ROYAL APEX VAULT | World-Class Luxury Automotive Showroom</title>
     <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Chart.js Engine CDN -->
+    <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         :root {
-            --bg-light: #f8fafc;
-            --card-bg: #ffffff;
-            --card-border: #e2e8f0;
-            --text-dark: #0f172a;
-            --text-muted: #64748b;
-            --accent-gold: #d97706;
-            --accent-emerald: #059669;
-            --accent-blue: #2563eb;
-            --radius-xl: 18px;
-            --radius-md: 10px;
-            --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.05);
-            --shadow-hover: 0 20px 40px rgba(15, 23, 42, 0.12);
+            --bg-dark: #07090e;
+            --bg-card: #0d111a;
+            --bg-card-hover: #141b29;
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #aa7c11;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-gold: rgba(212, 175, 55, 0.3);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --radius-xl: 16px;
+            --radius-md: 8px;
+            --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.15);
         }
 
         * {
@@ -34,166 +35,156 @@
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             min-height: 100vh;
-            padding: 30px 15px;
-            animation: pageEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes pageEntrance {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 100% 100%, rgba(170, 124, 17, 0.05) 0%, transparent 50%);
         }
 
         .container {
-            max-width: 1250px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
-        /* World-Class Luxury Header & Logo */
+        /* Royal Header */
         header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
+            position: relative;
         }
 
-        .brand-logo-container {
+        .royal-crest {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary), var(--gold-light));
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
-            border-radius: 12px;
-            display: flex;
             justify-content: center;
-            align-items: center;
-            font-size: 1.4rem;
-            color: #fbbf24;
-            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
-            animation: pulseGold 3s infinite alternate;
-        }
-
-        @keyframes pulseGold {
-            0% { box-shadow: 0 0 15px rgba(217, 119, 6, 0.2); }
-            100% { box-shadow: 0 0 25px rgba(251, 191, 36, 0.5); }
+            font-size: 1.8rem;
+            color: var(--bg-dark);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
         }
 
         header h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            color: var(--text-dark);
-            margin-bottom: 6px;
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            background: linear-gradient(180deg, #ffffff 0%, var(--gold-light) 60%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            text-transform: uppercase;
         }
 
         header p {
-            color: var(--text-muted);
+            color: var(--gold-light);
             font-size: 1.05rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             font-weight: 500;
+            opacity: 0.9;
         }
 
-        /* Search & Filter Controls */
+        /* Controls Section */
         .controls {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
             border-radius: var(--radius-xl);
-            padding: 18px 24px;
+            padding: 20px 25px;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             align-items: center;
-            margin-bottom: 35px;
-            box-shadow: var(--shadow-subtle);
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .search-box {
             flex: 1;
-            min-width: 250px;
+            min-width: 260px;
             position: relative;
         }
 
         .search-box i {
             position: absolute;
-            left: 16px;
+            left: 18px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--accent-gold);
+            color: var(--gold-primary);
         }
 
         .search-box input {
             width: 100%;
-            padding: 12px 16px 12px 45px;
-            background: #f1f5f9;
-            border: 1px solid var(--card-border);
+            padding: 14px 16px 14px 50px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            color: var(--text-dark);
+            color: var(--text-main);
             font-size: 0.95rem;
             outline: none;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .search-box input:focus {
-            border-color: var(--accent-gold);
-            background: #ffffff;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
         .filter-select {
-            padding: 12px 16px;
-            background: #f1f5f9;
-            border: 1px solid var(--card-border);
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            color: var(--text-dark);
+            color: var(--text-main);
             outline: none;
             cursor: pointer;
             font-size: 0.95rem;
-            font-weight: 600;
+            transition: border-color 0.3s;
         }
 
-        /* Supercar Grid with Clean Light Animations */
+        .filter-select:focus {
+            border-color: var(--gold-primary);
+        }
+
+        .filter-select option {
+            background: var(--bg-card);
+            color: var(--text-main);
+        }
+
+        /* Grid & Cards */
         .cars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
         }
 
         .car-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
             border-radius: var(--radius-xl);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: var(--shadow-subtle);
-            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
         }
 
         .car-card:hover {
-            transform: translateY(-8px) scale(1.015);
-            border-color: #cbd5e1;
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-8px);
+            border-color: var(--gold-primary);
+            box-shadow: var(--shadow-gold);
+            background: var(--bg-card-hover);
         }
 
         .car-img-wrap {
             position: relative;
-            height: 220px;
-            background: #f1f5f9;
+            height: 230px;
             overflow: hidden;
         }
 
@@ -210,51 +201,51 @@
 
         .brand-badge {
             position: absolute;
-            top: 14px;
-            right: 14px;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--card-border);
+            top: 15px;
+            right: 15px;
+            background: rgba(7, 9, 14, 0.85);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.75rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            backdrop-filter: blur(4px);
         }
 
         .car-content {
-            padding: 22px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             flex: 1;
         }
 
         .car-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.35rem;
             font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 4px;
+            color: var(--text-main);
+            margin-bottom: 6px;
         }
 
         .car-price {
-            color: var(--accent-gold);
-            font-weight: 800;
-            font-size: 1.2rem;
-            margin-bottom: 16px;
+            color: var(--gold-primary);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
         }
 
         .specs-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            background: #f8fafc;
-            border: 1px solid var(--card-border);
-            padding: 12px;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-subtle);
+            padding: 14px;
             border-radius: var(--radius-md);
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         .spec-item {
@@ -265,42 +256,46 @@
             color: var(--text-muted);
             display: block;
             font-size: 0.75rem;
-            font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .spec-val {
-            font-weight: 700;
-            color: var(--text-dark);
+            font-weight: 600;
+            color: var(--gold-light);
         }
 
-        .btn-details {
+        .btn-reserve {
             width: 100%;
-            padding: 12px;
-            background: #0f172a;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary));
             border: none;
-            color: #ffffff;
+            color: var(--bg-dark);
             font-weight: 700;
+            font-size: 0.95rem;
             border-radius: var(--radius-md);
             cursor: pointer;
             margin-top: auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            transition: background 0.2s;
+            gap: 10px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .btn-details:hover {
-            background: #1e293b;
+        .btn-reserve:hover {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
 
-        /* Light Luxury Modal Overlay */
+        /* Modal styling */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(6px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
             display: none;
             justify-content: center;
             align-items: center;
@@ -313,43 +308,48 @@
         }
 
         .modal-card {
-            background: #ffffff;
-            border: 1px solid var(--card-border);
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
             border-radius: var(--radius-xl);
-            max-width: 850px;
+            max-width: 900px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
-            animation: modalPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+            animation: modalFade 0.3s ease;
         }
 
-        @keyframes modalPopIn {
-            from { opacity: 0; transform: scale(0.95) translateY(15px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
+        @keyframes modalFade {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .modal-close {
             position: absolute;
-            top: 16px; right: 16px;
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid var(--card-border);
-            color: var(--text-dark);
-            width: 38px; height: 38px;
+            top: 20px; right: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-light);
+            width: 40px; height: 40px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 10;
+            transition: 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
         }
 
         .modal-hero {
-            height: 280px;
+            height: 320px;
             width: 100%;
-            background: #f1f5f9;
             position: relative;
         }
 
@@ -358,142 +358,58 @@
         }
 
         .modal-body {
-            padding: 28px;
+            padding: 30px;
         }
 
         .modal-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: var(--text-dark);
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--text-main);
         }
 
         .modal-subtitle {
-            color: var(--accent-gold);
-            font-weight: 800;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-        }
-
-        /* Custom Color Options */
-        .color-picker-group {
-            margin-bottom: 22px;
-        }
-
-        .color-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .color-options {
-            display: flex;
-            gap: 12px;
-        }
-
-        .color-dot {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 3px solid #e2e8f0;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .color-dot:hover, .color-dot.selected {
-            transform: scale(1.2);
-            border-color: #0f172a;
+            color: var(--gold-primary);
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
         }
 
         .chart-container {
-            background: #f8fafc;
-            border: 1px solid var(--card-border);
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-subtle);
             padding: 20px;
             border-radius: var(--radius-md);
-            margin-bottom: 24px;
+            margin-bottom: 30px;
         }
 
         .modal-section-title {
+            font-family: 'Cinzel', serif;
             font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin: 22px 0 12px 0;
-            border-bottom: 1px solid var(--card-border);
-            padding-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: var(--gold-light);
+            margin: 25px 0 15px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 8px;
         }
 
-        .modal-history-box {
-            background: #f8fafc;
-            border: 1px solid var(--card-border);
-            padding: 16px;
+        /* VIP Form */
+        .vip-form-container {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-gold);
             border-radius: var(--radius-md);
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        /* Order & Buy Button Trigger */
-        .btn-buy-trigger {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-            border: none;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 1.1rem;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 18px rgba(5, 150, 105, 0.25);
-            transition: transform 0.2s;
-        }
-
-        .btn-buy-trigger:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Dedicated Buying Feature & Specs Popup */
-        .checkout-form-container {
-            background: #f8fafc;
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-md);
-            padding: 24px;
-            margin-top: 18px;
+            padding: 25px;
+            margin-top: 25px;
             display: none;
         }
 
-        .checkout-form-container.active {
+        .vip-form-container.active {
             display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .car-summary-banner {
-            background: #ffffff;
-            border: 1px solid var(--card-border);
-            padding: 16px;
-            border-radius: var(--radius-md);
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
         }
 
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin-bottom: 16px;
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
         .form-group {
@@ -508,121 +424,93 @@
 
         .form-group label {
             font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-dark);
+            color: var(--gold-light);
         }
 
         .form-group input, .form-group select {
-            padding: 11px 14px;
-            background: #ffffff;
-            border: 1px solid var(--card-border);
-            border-radius: 6px;
-            color: var(--text-dark);
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            color: var(--text-main);
             font-size: 0.95rem;
             outline: none;
         }
 
         .form-group input:focus {
-            border-color: var(--accent-gold);
+            border-color: var(--gold-primary);
         }
 
-        .payment-methods {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 18px;
-        }
-
-        .pay-option {
-            background: #ffffff;
-            border: 1px solid var(--card-border);
-            padding: 12px;
-            border-radius: 6px;
-            text-align: center;
-            cursor: pointer;
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            transition: all 0.2s;
-        }
-
-        .pay-option.selected {
-            border-color: var(--accent-gold);
-            background: #fffbebf5;
-            color: var(--accent-gold);
-        }
-
-        .btn-submit-order {
+        .btn-submit-vip {
             width: 100%;
-            padding: 14px;
-            background: #0f172a;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary));
             border: none;
-            color: #ffffff;
+            color: var(--bg-dark);
             font-weight: 700;
-            border-radius: 6px;
+            font-size: 1rem;
+            border-radius: var(--radius-md);
             cursor: pointer;
-            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .order-success-msg {
+        .success-msg {
             display: none;
-            background: rgba(5, 150, 105, 0.1);
-            border: 1px solid var(--accent-emerald);
-            color: var(--accent-emerald);
-            padding: 16px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            padding: 20px;
             border-radius: var(--radius-md);
             text-align: center;
-            font-weight: 700;
-            margin-top: 15px;
+            font-weight: 600;
+            margin-top: 20px;
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .no-results {
-            text-align: center;
-            grid-column: 1 / -1;
-            padding: 40px;
-            color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 25px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- World-Class Header & Animated Brand Logo -->
+        <!-- Royal Header -->
         <header>
-            <div class="brand-logo-container">
-                <div class="logo-icon"><i class="fa-solid fa-crown"></i></div>
-                <span style="font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 800; letter-spacing: 2px; color: var(--text-dark);">APEXMOTORS</span>
+            <div class="royal-crest">
+                <i class="fa-solid fa-crown"></i>
             </div>
-            <h1>The Global Hypercar Vault</h1>
-            <p>Direct Factory Allocation, Verified Telemetry & Bespoke Concierge Procurement</p>
+            <h1>Royal Apex Vault</h1>
+            <p>Bespoke Automotive Procurement & Private Allocation</p>
         </header>
 
-        <!-- Search Controls -->
+        <!-- Search & Filter Controls -->
         <div class="controls">
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" onkeyup="filterCars()" placeholder="Search supercar by model, engine, or manufacturer...">
+                <input type="text" id="searchInput" onkeyup="filterCars()" placeholder="Search vault by make, model, or telemetry specs...">
             </div>
             <select id="brandFilter" class="filter-select" onchange="filterCars()">
-                <option value="ALL">All World Brands</option>
-                <option value="Koenigsegg">Koenigsegg</option>
+                <option value="ALL">All Marques</option>
+                <option value="Rolls-Royce">Rolls-Royce</option>
                 <option value="Bugatti">Bugatti</option>
-                <option value="Ferrari">Ferrari</option>
-                <option value="Lamborghini">Lamborghini</option>
-                <option value="Porsche">Porsche</option>
                 <option value="Pagani">Pagani</option>
-                <option value="McLaren">McLaren</option>
-                <option value="Rimac">Rimac</option>
+                <option value="Koenigsegg">Koenigsegg</option>
+                <option value="Ferrari">Ferrari</option>
                 <option value="Aston Martin">Aston Martin</option>
+                <option value="Lamborghini">Lamborghini</option>
+                <option value="McLaren">McLaren</option>
+            </select>
+            <select id="priceFilter" class="filter-select" onchange="filterCars()">
+                <option value="ALL">All Valuations</option>
+                <option value="ULTRA">Ultra-Luxury Tier (>$10M)</option>
+                <option value="HYPER">Hypercar Tier ($3M - $10M)</option>
+                <option value="FLAGSHIP">Flagship Tier (<$3M)</option>
             </select>
         </div>
 
@@ -630,110 +518,82 @@
         <div class="cars-grid" id="carsGrid"></div>
 
         <footer>
-            <p>&copy; 2026 Sinan Miraj. Designed for World-Class High Performance Deployment on GitHub Pages.</p>
+            <p>&copy; 2026 ROYAL APEX VAULT. ALL RIGHTS RESERVED. PRIVATE CONCIERGE NETWORK.</p>
         </footer>
     </div>
 
-    <!-- Analytics & Buy Allocation Modal -->
+    <!-- VIP Allocation Modal -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-card">
             <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
             <div class="modal-hero">
-                <img id="modalImg" src="" alt="Supercar">
+                <img id="modalImg" src="" alt="Vehicle Showcase">
             </div>
             <div class="modal-body">
-                <h2 class="modal-title" id="modalTitle">Car Title</h2>
+                <h2 class="modal-title" id="modalTitle">Vehicle Title</h2>
                 <div class="modal-subtitle" id="modalPrice">$0</div>
 
-                <!-- Color Selector -->
-                <div class="color-picker-group">
-                    <span class="color-label"><i class="fa-solid fa-palette"></i> Select Bespoke Exterior Finish:</span>
-                    <div class="color-options">
-                        <div class="color-dot selected" style="background: #0f172a;" onclick="selectColor(this, 'Liquid Carbon Black')"></div>
-                        <div class="color-dot" style="background: #dc2626;" onclick="selectColor(this, 'Rosso Corsa Red')"></div>
-                        <div class="color-dot" style="background: #0284c7;" onclick="selectColor(this, 'Cyan Velocity')"></div>
-                        <div class="color-dot" style="background: #f1f5f9;" onclick="selectColor(this, 'Bianco Monocerus White')"></div>
-                        <div class="color-dot" style="background: #d97706;" onclick="selectColor(this, 'Midas Gold')"></div>
-                    </div>
-                </div>
-
-                <!-- Chart Container -->
-                <div class="modal-section-title"><i class="fa-solid fa-chart-line"></i> Valuation & Market Appreciation (5-Year Trend)</div>
+                <!-- 5-Year Valuation Chart -->
+                <div class="modal-section-title"><i class="fa-solid fa-chart-line"></i> 5-Year Appreciation & Valuation Analysis</div>
                 <div class="chart-container">
                     <canvas id="valuationChart" height="200"></canvas>
                 </div>
 
-                <div class="modal-section-title"><i class="fa-solid fa-microchip"></i> Engine & Performance Telemetry</div>
+                <!-- Specifications Grid -->
+                <div class="modal-section-title"><i class="fa-solid fa-microchip"></i> Telemetry & Performance</div>
                 <div class="specs-grid" style="grid-template-columns: repeat(3, 1fr);">
                     <div class="spec-item"><span class="spec-label">Power Output</span><span class="spec-val" id="modalHp">-</span></div>
                     <div class="spec-item"><span class="spec-label">Top Velocity</span><span class="spec-val" id="modalSpeed">-</span></div>
                     <div class="spec-item"><span class="spec-label">0-60 MPH</span><span class="spec-val" id="modalAccel">-</span></div>
-                    <div class="spec-item" style="grid-column: span 3;"><span class="spec-label">Engine Configuration</span><span class="spec-val" id="modalEngine">-</span></div>
-                    <div class="spec-item" style="grid-column: span 3;"><span class="spec-label">Global Production Volume</span><span class="spec-val" id="modalUnits">-</span></div>
+                    <div class="spec-item" style="grid-column: span 3;"><span class="spec-label">Engine Architecture</span><span class="spec-val" id="modalEngine">-</span></div>
+                    <div class="spec-item" style="grid-column: span 3;"><span class="spec-label">Global Production Limitation</span><span class="spec-val" id="modalUnits">-</span></div>
                 </div>
 
-                <div class="modal-section-title"><i class="fa-solid fa-file-contract"></i> Historical Analysis</div>
-                <div class="modal-history-box" id="modalHistory">
-                    Data loading...
-                </div>
+                <!-- History -->
+                <div class="modal-section-title"><i class="fa-solid fa-landmark"></i> Provenance & Heritage</div>
+                <p id="modalHistory" style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; margin-bottom: 20px;"></p>
 
-                <!-- Direct Buying Flow Interface -->
-                <div style="margin-top: 24px;">
-                    <button class="btn-buy-trigger" onclick="toggleCheckoutForm()">
-                        <i class="fa-solid fa-bag-shopping"></i> Order & Secure Allocation
-                    </button>
+                <!-- Trigger VIP Form -->
+                <button class="btn-reserve" onclick="toggleVipForm()">
+                    <i class="fa-solid fa-file-signature"></i> Initiate VIP Concierge Acquisition
+                </button>
 
-                    <div class="checkout-form-container" id="checkoutForm">
-                        <!-- Feature Summary Header inside Checkout -->
-                        <div class="car-summary-banner">
-                            <div>
-                                <strong id="summaryCarTitle" style="font-size: 1.1rem;">-</strong>
-                                <p style="font-size: 0.85rem; color: var(--text-muted);" id="summaryCarSpecs">-</p>
+                <!-- VIP Booking Form -->
+                <div class="vip-form-container" id="vipForm">
+                    <h3 style="font-family: 'Cinzel', serif; color: var(--gold-light); margin-bottom: 15px;">Private Consultation Protocol</h3>
+                    <form id="acquisitionForm" onsubmit="submitVipForm(event)">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Client Full Name</label>
+                                <input type="text" required placeholder="Lord / Lady / Sir / Madam...">
                             </div>
-                            <span id="summaryCarPrice" style="font-weight: 800; color: var(--accent-gold); font-size: 1.1rem;">-</span>
+                            <div class="form-group">
+                                <label>Direct Contact Phone</label>
+                                <input type="tel" required placeholder="+1 (555) 019-2834">
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Inspection Location</label>
+                                <select required>
+                                    <option value="Geneva Private Vault">Geneva Private Vault (Switzerland)</option>
+                                    <option value="Dubai Showroom">Dubai Flagship Showroom</option>
+                                    <option value="London Concierge Office">London Mayfair Office</option>
+                                    <option value="Private Estate Delivery">Direct Private Jet/Estate Handover</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Consultation Preference</label>
+                                <select required>
+                                    <option value="In-Person Private Viewing">In-Person Private Viewing</option>
+                                    <option value="Encrypted Video Call">Encrypted Video Conference</option>
+                                </select>
+                            </div>
                         </div>
+                        <button type="submit" class="btn-submit-vip">Submit Private Consultation Request</button>
+                    </form>
 
-                        <h3 style="margin-bottom: 14px; font-size: 1.1rem; color: var(--text-dark);"><i class="fa-solid fa-shield-halved"></i> Customer Procurement Details</h3>
-                        <form id="orderForm" onsubmit="submitOrder(event)">
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label>Full Name</label>
-                                    <input type="text" id="custName" required placeholder="e.g. Sinan Miraj">
-                                </div>
-                                <div class="form-group">
-                                    <label>Mobile Phone Number</label>
-                                    <input type="tel" id="custPhone" required placeholder="+92 300 0000000">
-                                </div>
-                                <div class="form-group">
-                                    <label>Country</label>
-                                    <input type="text" id="custCountry" required placeholder="Pakistan">
-                                </div>
-                                <div class="form-group">
-                                    <label>City</label>
-                                    <input type="text" id="custCity" required placeholder="Kohat">
-                                </div>
-                                <div class="form-group full">
-                                    <label>Fulfillment / Delivery Method</label>
-                                    <select id="deliveryType" required>
-                                        <option value="Hand-to-Hand Handover Delivery">Hand-to-Hand Direct VIP Handover</option>
-                                        <option value="Online Insured Freight Order">Online Insured Global Air Freight</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <label class="form-group label" style="margin-bottom: 8px; display:block; font-weight:600;">Select Secure Payment Gateway</label>
-                            <div class="payment-methods">
-                                <div class="pay-option selected" onclick="selectPayment(this, 'Bank Transfer')">Bank Wire</div>
-                                <div class="pay-option" onclick="selectPayment(this, 'Credit Card (Visa)')">Visa Card</div>
-                                <div class="pay-option" onclick="selectPayment(this, 'UnionPay')">UnionPay</div>
-                            </div>
-
-                            <button type="submit" class="btn-submit-order">Confirm Allocation Purchase</button>
-                        </form>
-
-                        <div class="order-success-msg" id="successMsg">
-                            <i class="fa-solid fa-circle-check"></i> Allocation request submitted! Our concierge team will contact you shortly.
-                        </div>
+                    <div class="success-msg" id="successMsg">
+                        <i class="fa-solid fa-crown" style="font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+                        Your acquisition request has been dispatched to your dedicated Concierge Director. Expect encrypted contact within 2 hours.
                     </div>
                 </div>
 
@@ -742,146 +602,188 @@
     </div>
 
     <script>
-        const fallbackSVG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400' fill='%23f1f5f9'><rect width='100%' height='100%'/><text x='50%' y='50%' font-family='sans-serif' font-size='26' fill='%230f172a' text-anchor='middle' dominant-baseline='middle'>APEX MOTORS LUXURY TELEMETRY</text></svg>";
+        const fallbackSVG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400' fill='%230d111a'><rect width='100%' height='100%'/><text x='50%' y='50%' font-family='serif' font-size='24' fill='%23d4af37' text-anchor='middle' dominant-baseline='middle'>ROYAL APEX VAULT ASSET</text></svg>";
 
-        let selectedCarColor = "Liquid Carbon Black";
-        let selectedPaymentMethod = "Bank Transfer";
-        let activeCarIndex = 0;
-
-        const supercars = [
+        const luxuryVault = [
             {
-                brand: "Koenigsegg",
-                name: "Koenigsegg Jesko Absolut",
-                price: "$3,400,000",
-                hp: "1,600 HP",
-                speed: "330 mph (531 km/h)",
-                accel: "2.5 sec",
-                engine: "5.0L Twin-Turbo V8",
-                units: "125 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80",
-                chartData: [3.0, 3.2, 3.5, 3.9, 4.3],
-                history: "All 125 build slots sold out prior to delivery. Private allocation secondary transfers currently trade at an average 32% market premium."
-            },
-            {
-                brand: "Koenigsegg",
-                name: "Koenigsegg Regera",
-                price: "$2,000,000",
-                hp: "1,500 HP",
-                speed: "251 mph (404 km/h)",
-                accel: "2.8 sec",
-                engine: "5.0L V8 Twin-Turbo + 3 Electric Motors",
-                units: "80 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80",
-                chartData: [1.9, 2.1, 2.4, 2.8, 3.2],
-                history: "Broke the 0-400-0 km/h world record. Resales at RM Sotheby's auctions have shown steady yearly price gains."
+                brand: "Rolls-Royce",
+                name: "Rolls-Royce Boat Tail",
+                price: "$28,000,000",
+                rawPrice: 28000000,
+                hp: "563 HP",
+                speed: "155 mph (250 km/h)",
+                accel: "4.6 sec",
+                engine: "6.75L Twin-Turbo V12",
+                units: "3 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1631295868223-63265b40d9e4?auto=format&fit=crop&w=800&q=80",
+                chartData: [28.0, 29.5, 31.0, 32.8, 35.0],
+                history: "The pinnacle of custom coachbuilding. Features an aft hosting suite with opening butterfly doors, custom Christofle tableware, and dual Armand de Brignac champagne coolers."
             },
             {
                 brand: "Bugatti",
-                name: "Bugatti Chiron Super Sport",
-                price: "$3,900,000",
-                hp: "1,578 HP",
-                speed: "273 mph (440 km/h)",
-                accel: "2.3 sec",
-                engine: "8.0L Quad-Turbo W16",
-                units: "500 Total Chiron Variants",
-                img: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80",
-                chartData: [3.8, 4.0, 4.3, 4.7, 5.1],
-                history: "Marks the final era of Bugatti's Quad-Turbo W16 internal combustion platform. Highly coveted by global private collectors."
-            },
-            {
-                brand: "Ferrari",
-                name: "LaFerrari Aperta",
-                price: "$2,200,000",
-                hp: "950 HP",
-                speed: "217 mph (350 km/h)",
+                name: "Bugatti La Voiture Noire",
+                price: "$18,700,000",
+                rawPrice: 18700000,
+                hp: "1,479 HP",
+                speed: "261 mph (420 km/h)",
                 accel: "2.4 sec",
-                engine: "6.3L V12 Hybrid",
-                units: "210 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=80",
-                chartData: [4.5, 5.2, 6.0, 7.5, 8.8],
-                history: "Auction price records reached $10 Million during European charity auctions. Represents Ferrari's flagship hybrid pinnacle."
-            },
-            {
-                brand: "Lamborghini",
-                name: "Lamborghini Aventador SVJ",
-                price: "$517,700",
-                hp: "759 HP",
-                speed: "217 mph (350 km/h)",
-                accel: "2.8 sec",
-                engine: "6.5L Naturally Aspirated V12",
-                units: "900 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80",
-                chartData: [0.55, 0.62, 0.71, 0.82, 0.95],
-                history: "Nürburgring production lap record holder. The last non-electrified pure V12 flagship from Sant'Agata Bolognese."
+                engine: "8.0L Quad-Turbo W16",
+                units: "One-of-One (1 Unit)",
+                img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80",
+                chartData: [18.7, 19.8, 21.0, 22.5, 24.0],
+                history: "A modern tribute to Jean Bugatti's lost Type 57 SC Atlantic. Hand-crafted carbon fiber body shell with zero visible seams and six rear exhaust tailpipes."
             },
             {
                 brand: "Pagani",
-                name: "Pagani Huayra Roadster BC",
-                price: "$3,500,000",
-                hp: "791 HP",
-                speed: "238 mph (383 km/h)",
-                accel: "2.8 sec",
-                engine: "6.0L Twin-Turbo AMG V12",
-                units: "40 Units Worldwide",
+                name: "Pagani Zonda HP Barchetta",
+                price: "$17,500,000",
+                rawPrice: 17500000,
+                hp: "789 HP",
+                speed: "221 mph (355 km/h)",
+                accel: "3.1 sec",
+                engine: "7.3L Naturally Aspirated AMG V12",
+                units: "3 Units Worldwide",
                 img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
-                chartData: [3.5, 3.8, 4.1, 4.4, 4.8],
-                history: "Handcrafted carbon-titanium body architecture. Resale valuations hold at roughly $4.8M on private trade networks."
+                chartData: [17.5, 18.2, 19.0, 20.1, 21.5],
+                history: "Horacio Pagani's personal dream specification. Features cropped windshield geometry, carbon-titanium chassis, and rear wheel fairings."
             },
             {
-                brand: "Porsche",
-                name: "Porsche 911 GT3 RS",
-                price: "$241,300",
-                hp: "518 HP",
-                speed: "184 mph (296 km/h)",
-                accel: "3.0 sec",
-                engine: "4.0L High-Rev Flat-6",
-                units: "Track Special Production",
-                img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80",
-                chartData: [0.25, 0.32, 0.38, 0.44, 0.50],
-                history: "Active DRS rear wing aerodynamics. Secondary dealer allocations command up to $150,000 over original MSRP."
+                brand: "Bugatti",
+                name: "Bugatti Centodieci",
+                price: "$9,000,000",
+                rawPrice: 9000000,
+                hp: "1,578 HP",
+                speed: "240 mph (380 km/h)",
+                accel: "2.4 sec",
+                engine: "8.0L Quad-Turbo W16",
+                units: "10 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80",
+                chartData: [9.0, 9.8, 10.7, 11.5, 12.8],
+                history: "Homage to the legendary 1990s EB110 super sports car. Re-engineers the Chiron platform into an ultra-exclusive wedge design."
             },
             {
-                brand: "Rimac",
-                name: "Rimac Nevera",
-                price: "$2,400,000",
-                hp: "1,914 HP",
-                speed: "258 mph (412 km/h)",
-                accel: "1.74 sec",
-                engine: "Quad-Motor Electric Drive",
-                units: "150 Units Worldwide",
-                img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
-                chartData: [2.4, 2.5, 2.7, 2.9, 3.1],
-                history: "Holds over 20 acceleration world records. Croatian EV engineering flagship."
+                brand: "Koenigsegg",
+                name: "Koenigsegg CC850",
+                price: "$3,650,000",
+                rawPrice: 3650000,
+                hp: "1,385 HP",
+                speed: "280+ mph (450+ km/h)",
+                accel: "2.6 sec",
+                engine: "5.0L Twin-Turbo V8",
+                units: "70 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80",
+                chartData: [3.65, 4.0, 4.4, 4.9, 5.5],
+                history: "Equipped with the revolutionary Engage Shift System (ESS), functioning as both a gated 6-speed manual and a 9-speed automatic."
             },
             {
                 brand: "Aston Martin",
-                name: "Aston Martin Valkyrie",
-                price: "$3,500,000",
+                name: "Aston Martin Valkyrie Spider",
+                price: "$3,800,000",
+                rawPrice: 3800000,
                 hp: "1,139 HP",
-                speed: "220 mph (354 km/h)",
+                speed: "205 mph (330 km/h)",
                 accel: "2.5 sec",
                 engine: "6.5L Cosworth V12 Hybrid",
-                units: "150 Units Worldwide",
+                units: "85 Units Worldwide",
                 img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80",
-                chartData: [3.5, 3.8, 4.2, 4.6, 5.1],
-                history: "Co-developed with Red Bull Racing Formula 1 engineers generating full ground-effect downforce."
+                chartData: [3.8, 4.1, 4.5, 4.9, 5.4],
+                history: "Brings Formula 1 aerodynamic package to open-top road driving, revving to a staggering 11,100 RPM."
+            },
+            {
+                brand: "Lamborghini",
+                name: "Lamborghini Sian FKP 37",
+                price: "$3,700,000",
+                rawPrice: 3700000,
+                hp: "808 HP",
+                speed: "217 mph (350 km/h)",
+                accel: "2.8 sec",
+                engine: "6.5L V12 Supercapacitor Hybrid",
+                units: "63 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80",
+                chartData: [3.7, 4.0, 4.3, 4.7, 5.1],
+                history: "First hybrid application utilizing lightweight supercapacitors instead of conventional lithium-ion batteries."
+            },
+            {
+                brand: "Ferrari",
+                name: "Ferrari Daytona SP3",
+                price: "$2,250,000",
+                rawPrice: 2250000,
+                hp: "829 HP",
+                speed: "211 mph (340 km/h)",
+                accel: "2.85 sec",
+                engine: "6.5L Mid-Mounted V12",
+                units: "599 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=80",
+                chartData: [2.25, 2.7, 3.2, 3.8, 4.3],
+                history: "Iconic Icona series model inspired by Ferrari's legendary 1967 24 Hours of Daytona 1-2-3 sweep finish."
+            },
+            {
+                brand: "Pagani",
+                name: "Pagani Utopia",
+                price: "$2,500,000",
+                rawPrice: 2500000,
+                hp: "852 HP",
+                speed: "220 mph (354 km/h)",
+                accel: "2.9 sec",
+                engine: "6.0L AMG Twin-Turbo V12",
+                units: "99 Coupe Units",
+                img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
+                chartData: [2.5, 2.8, 3.1, 3.5, 3.9],
+                history: "Developed over 6 years with no heavy hybrid components. Purist focus featuring an exposed gated manual shifter."
+            },
+            {
+                brand: "McLaren",
+                name: "McLaren Solus GT",
+                price: "$3,500,000",
+                rawPrice: 3500000,
+                hp: "829 HP",
+                speed: "200+ mph (322+ km/h)",
+                accel: "2.5 sec",
+                engine: "5.2L Naturally Aspirated V10",
+                units: "25 Units Worldwide",
+                img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80",
+                chartData: [3.5, 3.7, 4.0, 4.3, 4.7],
+                history: "Brings the virtual Gran Turismo concept car to real-world track life with a central single-seat canopy cockpit."
+            },
+            {
+                brand: "Rolls-Royce",
+                name: "Rolls-Royce Spectre Commission",
+                price: "$520,000",
+                rawPrice: 520000,
+                hp: "577 HP",
+                speed: "155 mph (250 km/h)",
+                accel: "4.4 sec",
+                engine: "Dual Electric Motors (102 kWh)",
+                units: "Bespoke Production",
+                img: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80",
+                chartData: [0.52, 0.55, 0.58, 0.62, 0.66],
+                history: "The world's first ultra-luxury electric super coupe. Features Starlight Doors and planar suspension system."
+            },
+            {
+                brand: "Ferrari",
+                name: "Ferrari Monza SP2",
+                price: "$1,800,000",
+                rawPrice: 1800000,
+                hp: "799 HP",
+                speed: "186 mph (300 km/h)",
+                accel: "2.9 sec",
+                engine: "6.5L Naturally Aspirated V12",
+                units: "499 Units (Combined SP1/SP2)",
+                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+                chartData: [1.8, 2.2, 2.6, 3.0, 3.5],
+                history: "Purist speedster lacking traditional windshield, employing Ferrari's patented Virtual Wind Shield."
             }
         ];
 
         let chartInstance = null;
 
-        function renderCars(carList) {
+        function renderGrid(list) {
             const grid = document.getElementById('carsGrid');
             grid.innerHTML = '';
 
-            if (carList.length === 0) {
-                grid.innerHTML = `<div class="no-results"><i class="fa-solid fa-car-side"></i><br>No supercars matched your search query.</div>`;
-                return;
-            }
-
-            carList.forEach((car, idx) => {
+            list.forEach((car, index) => {
                 const card = `
-                    <div class="car-card" onclick="openModal(${idx})">
+                    <div class="car-card">
                         <div class="car-img-wrap">
                             <img src="${car.img}" alt="${car.name}" onerror="this.onerror=null;this.src='${fallbackSVG}';">
                             <span class="brand-badge">${car.brand}</span>
@@ -891,7 +793,7 @@
                             <div class="car-price">${car.price}</div>
                             <div class="specs-grid">
                                 <div class="spec-item">
-                                    <span class="spec-label">Power Output</span>
+                                    <span class="spec-label">Power</span>
                                     <span class="spec-val">${car.hp}</span>
                                 </div>
                                 <div class="spec-item">
@@ -899,12 +801,12 @@
                                     <span class="spec-val">${car.speed}</span>
                                 </div>
                                 <div class="spec-item" style="grid-column: span 2;">
-                                    <span class="spec-label">Engine Config</span>
+                                    <span class="spec-label">Engine</span>
                                     <span class="spec-val">${car.engine}</span>
                                 </div>
                             </div>
-                            <button class="btn-details">
-                                <i class="fa-solid fa-eye"></i> Explore Specs & Valuation
+                            <button class="btn-reserve" onclick="openModal(${index})">
+                                <i class="fa-solid fa-crown"></i> Reserve Allocation
                             </button>
                         </div>
                     </div>
@@ -914,23 +816,27 @@
         }
 
         function filterCars() {
-            const searchText = document.getElementById('searchInput').value.toLowerCase();
-            const selectedBrand = document.getElementById('brandFilter').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const brand = document.getElementById('brandFilter').value;
+            const price = document.getElementById('priceFilter').value;
 
-            const filtered = supercars.filter(car => {
-                const matchesSearch = car.name.toLowerCase().includes(searchText) || 
-                                      car.engine.toLowerCase().includes(searchText) ||
-                                      car.brand.toLowerCase().includes(searchText);
-                const matchesBrand = selectedBrand === 'ALL' || car.brand === selectedBrand;
-                return matchesSearch && matchesBrand;
+            const filtered = luxuryVault.filter(car => {
+                const matchSearch = car.name.toLowerCase().includes(search) || car.engine.toLowerCase().includes(search);
+                const matchBrand = brand === 'ALL' || car.brand === brand;
+                
+                let matchPrice = true;
+                if (price === 'ULTRA') matchPrice = car.rawPrice >= 10000000;
+                else if (price === 'HYPER') matchPrice = car.rawPrice >= 3000000 && car.rawPrice < 10000000;
+                else if (price === 'FLAGSHIP') matchPrice = car.rawPrice < 3000000;
+
+                return matchSearch && matchBrand && matchPrice;
             });
 
-            renderCars(filtered);
+            renderGrid(filtered);
         }
 
         function openModal(index) {
-            activeCarIndex = index;
-            const car = supercars[index];
+            const car = luxuryVault[index];
             document.getElementById('modalImg').src = car.img;
             document.getElementById('modalTitle').innerText = car.name;
             document.getElementById('modalPrice').innerText = car.price;
@@ -941,87 +847,61 @@
             document.getElementById('modalUnits').innerText = car.units;
             document.getElementById('modalHistory').innerText = car.history;
 
-            // Summary Info inside Buy Interface
-            document.getElementById('summaryCarTitle').innerText = car.name;
-            document.getElementById('summaryCarSpecs').innerText = `${car.hp} | ${car.engine} | ${car.speed}`;
-            document.getElementById('summaryCarPrice').innerText = car.price;
-
-            // Reset Checkout Box State
-            document.getElementById('checkoutForm').classList.remove('active');
+            document.getElementById('vipForm').classList.remove('active');
             document.getElementById('successMsg').style.display = 'none';
-            document.getElementById('orderForm').reset();
 
             document.getElementById('modalOverlay').classList.add('active');
-            renderChart(car.chartData || [2.0, 2.2, 2.5, 2.8, 3.2]);
+            renderChart(car.chartData);
         }
 
         function closeModal() {
             document.getElementById('modalOverlay').classList.remove('active');
         }
 
-        function selectColor(element, colorName) {
-            document.querySelectorAll('.color-dot').forEach(el => el.classList.remove('selected'));
-            element.classList.add('selected');
-            selectedCarColor = colorName;
+        function toggleVipForm() {
+            document.getElementById('vipForm').classList.toggle('active');
         }
 
-        function toggleCheckoutForm() {
-            const form = document.getElementById('checkoutForm');
-            form.classList.toggle('active');
-        }
-
-        function selectPayment(element, method) {
-            document.querySelectorAll('.pay-option').forEach(el => el.classList.remove('selected'));
-            element.classList.add('selected');
-            selectedPaymentMethod = method;
-        }
-
-        function submitOrder(event) {
-            event.preventDefault();
+        function submitVipForm(e) {
+            e.preventDefault();
             document.getElementById('successMsg').style.display = 'block';
-            setTimeout(() => {
-                alert(`Allocation successfully reserved in ${selectedCarColor} finish via ${selectedPaymentMethod}!`);
-            }, 300);
+            document.getElementById('acquisitionForm').reset();
         }
 
         function renderChart(dataPoints) {
             const ctx = document.getElementById('valuationChart').getContext('2d');
-            
-            if (chartInstance) {
-                chartInstance.destroy();
-            }
+            if (chartInstance) chartInstance.destroy();
 
             chartInstance = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['2022', '2023', '2024', '2025', '2026 (Est.)'],
+                    labels: ['25 Years Ago', '2023', '2024', '2025', '2026 (Current)'],
                     datasets: [{
-                        label: 'Valuation Trend ($ Millions USD)',
+                        label: 'Valuation Appreciation ($ Millions USD)',
                         data: dataPoints,
-                        borderColor: '#d97706',
-                        backgroundColor: 'rgba(217, 119, 6, 0.08)',
-                        borderWidth: 2.5,
+                        borderColor: '#d4af37',
+                        backgroundColor: 'rgba(212, 175, 55, 0.08)',
+                        borderWidth: 2,
                         fill: true,
                         tension: 0.3,
-                        pointBackgroundColor: '#0f172a',
-                        pointRadius: 4
+                        pointBackgroundColor: '#f3e5ab'
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { labels: { color: '#64748b', font: { family: 'Plus Jakarta Sans', weight: '600' } } }
+                        legend: { labels: { color: '#f3e5ab', font: { family: 'Cinzel' } } }
                     },
                     scales: {
-                        x: { ticks: { color: '#64748b' }, grid: { color: '#e2e8f0' } },
-                        y: { ticks: { color: '#64748b' }, grid: { color: '#e2e8f0' } }
+                        x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
                     }
                 }
             });
         }
 
-        renderCars(supercars);
+        renderGrid(luxuryVault);
     </script>
 </body>
 </html>
